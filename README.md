@@ -19,7 +19,7 @@ Here are some ideas to get you started:
 const zcoder = {
   blog:'fcbyk.com',
   resume:'zcoder.cn',	//uninitialized
-  penguin:731240932，
+  penguin:731240932,
   code: ['C++','Java','JavaScript'],
   framework:['Vue','Spring','SpringBoot'],
   databases: ['MySQL']
