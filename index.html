@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>非常不愉快</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .grid-container {
+            position: relative;
+            width: 100vw;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .grid-layer {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background:
+                repeating-linear-gradient(0deg, transparent, transparent 3em, rgba(133, 193, 233, 0.5) 3em, rgba(133, 193, 233, 0.5) 3.1em),
+                repeating-linear-gradient(-90deg, transparent, transparent 3em, rgba(133, 193, 233, 0.5) 3em, rgba(133, 193, 233, 0.5) 3.1em);
+            pointer-events: none;
+            z-index: -999;
+        }
+
+        .text {
+            font-size: calc(10px + 0.33vw);
+            -webkit-font-smoothing: antialiased;
+            padding: 5vh 10vw;
+            color: #121314;
+            z-index: 999;
+        }
+
+        p {
+            font-size: 1.6em;
+            font-weight: 300;
+            line-height: 1.4;
+            max-width: 28em;
+        }
+
+        a {
+            text-decoration: none;
+            white-space: nowrap;
+            color: #06509a;
+            position: relative;
+            font-weight: 700;
+        }
+
+        a:hover {
+            text-decoration-line: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grid-container">
+        <div class="grid-layer"></div>
+        <div class="text">
+            <p style="font-weight: 500; font-size: 2.2em;margin-top: 5vh;">Hello，欢迎来的不愉的主页</p>
+            <p>还没想好写些什么...</p>
+            <p>毕业后，自从没从事本专业的工作后，好久没捣鼓计科</p>
+            <p>现在，我回来了，不管未来能否变现，我也会凭着兴趣去学习，现阶段的我会继续去学习全栈独立开发，和朋友一起去写一些有意思的项目，同时我也在进行英语的学习，目标是雅思7分，弥补大学时英语的遗憾</p>
+            <p>额——，我会好好使用AI帮助我学习并解决问题的！</p>
+            <p>该站点有一些超链接，我的浏览器书签<a href="https://docs.fcbyk.com/">在这</a>，当然如果你想知道这个站点域名的由来，可以<a href="https://docs.fcbyk.com/about/name">点这里</a></p>
+            <p>最后呢，我许愿每天都能做自己喜欢的事情，而不是...</p>
+        </div>
+    </div>
+</body>
+
+</html>
