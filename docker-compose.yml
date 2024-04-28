@@ -1,0 +1,27 @@
+version: '3.0'
+
+services:
+  web:
+    image: nginx:latest
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./index.html:/etc/nginx/index.html
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./certs:/etc/nginx/certs
+    command: ["nginx", "-g", "daemon off;"]
+
+# 后台启动web服务
+# 默认会在当前目录查找名为 docker-compose.yml 或 docker-compose.yaml 的文件
+# docker-compose up -d web
+
+# -f 或 --file 选项指定特定的 Docker Compose 文件路径
+# docker-compose -f my-docker-compose.yml up -d
+
+# 重新构建镜像并启动服务
+# docker-compose up --build
+
+# 停止并移除所有服务容器
+# docker-compose down
+
