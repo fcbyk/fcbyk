@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="keyword" content="不是不余，不愉的云端小屋，不愉,不愉快,非常不愉快,云端小屋" />
+        <meta name="description" content="云端小屋，个人Blog" />
+        
+        <title>不愉的云端小屋</title>
+    
+        <link rel="icon" href="icons/un-smile.png" type="image/png">
+        <link rel="shortcut icon" href="icons/un-smile.png" type="image/png">
+        <link rel="stylesheet" href="style.css">
+    </head>
+<body>
+    <nav>
+        <div id="left">
+            <h2>云端小屋</h2>
+        </div>
+        <input type="checkbox" id="nav-check">
+        <label for="nav-check">&#9776</label>
+        <div id="right">
+            <ul>
+                <li><a href="https://www.yuque.com/fcbyk" target="_blank">语雀笔记</a></li>
+                <li><a href="https://github.com/fcbyk" target="_blank">GitHub</a></li>
+                <!-- <li><a id="databases" href = "http://fcbyk.com:5000">数据库课程设计</a></li> -->
+            </ul>
+        </div>
+    </nav>
+
+    <!-- <script>
+        let databases = document.getElementById('databases');
+        databases.onclick=()=>{
+            // console.log('调用了回调函数')
+            if((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
+                window.location.href = "pages/message.html";     //手机
+            } else {
+                window.location.href = "http://fcbyk.com:5000/login.html";     //电脑
+            }
+        }
+    </script> -->
+
+    <div id="content">
+        <div id="computer">
+            <div class="c-left"><img src="images/IT.png"></div>
+            <div class="c-right">
+               <h1>计算机</h1>
+               <a href="pages/404.html"><button>Go！</button></a>
+            </div>         
+        </div>
+        <div id="other">
+            <div class="c-left"><img src="images/art.jpg"></div>
+            <div class="c-right">
+               <h1>板绘</h1>
+               <a href="pages/404.html"><button>Go！</button></a>
+            </div>     
+        </div>
+    </div>
+
+    <div class="bottom">
+        <div id="name">
+            <img src="icons/signature.png" >
+        </div>
+        <div id="beian">
+            <a href="https://beian.miit.gov.cn/" target="_blank">
+                <img src="icons/icp.png" >
+            </a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,366 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size:62.5%;
+    // 因为100%=16px，1px=6.25%，所以10px=62.5%
+    body{
+        background-color: #FAFAFA;
+        .scrollbar{
+            height: 95vh;
+            /* Hide scrollbar for Chrome, Safari and Opera */
+            &::-webkit-scrollbar {
+                display: none;
+            }
+            
+            overflow-y: auto; /* Add the ability to scroll */
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        .nav{
+            user-select: none;
+            display: flex;
+            padding: 3rem;
+            padding-bottom: 1rem;
+            font-size: 2.5rem;
+            color: #9e9e9e; 
+            div{
+                margin: 0rem 1rem;
+                transition: all 0.2s;
+            }
+            :nth-child(1){
+                font-weight: bold;
+                color: black;
+            }
+        }
+        .footer{
+            .center();
+            width: 100vw;
+            height: 5vh;
+            position: fixed;
+            bottom: 0;
+            background-color: #FAFAFA;
+            a{
+                color: #303133;
+                &:hover{
+                    color: rgb(0, 0, 0);
+                }
+            }
+        }
+    }
+    a{
+        text-decoration: none; 
+        color: black;
+    }
+    p{
+        margin: 0.6rem 0rem;
+    }
+} 
+
+.blur-filter{
+    position: absolute;
+    z-index: -1;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+}
+
+.appear{
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.25);
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.boxconfig(@margin, @width,@height, @radius,@color:transparent,@fontcolor:black,@font-weight:bold){
+    margin: @margin;
+    height: @height;
+    width: @width;
+    border-radius: @radius;
+    background-color: @color;
+    color: @fontcolor;
+    .title{
+        font-weight: @font-weight;
+    }
+}
+
+.goto{
+    font-style: italic;
+    font-weight: bold;
+    background-image: linear-gradient(to right, orange, purple);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 1.4rem;
+    &:hover{
+        background-image: linear-gradient(to right, rgb(255, 177, 31), rgb(164, 8, 164));
+    }
+}
+
+.buttongo{
+    .center();
+    color: #ffffff;
+    height: 2.5rem;
+    width: 5rem;
+    border-radius: 2rem;
+    background-color: rgb(0, 106, 159);
+}
+
+.border{
+    border: rgb(203, 203, 203) solid 0.1rem;
+}
+
+
+.painting{
+    user-select: none;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    div{
+        margin-top: 20rem;
+        p{
+            text-align: center;
+        }
+    }
+}
+
+.openconfig(@icon-size-before,@icon-size-after){
+    .center();
+    .icon{
+        width: @icon-size-before;
+        height: auto;
+    }
+    .detail{
+        display: none;
+    }
+    &.show{
+        position: absolute;
+        height: auto;
+        width: 30rem;
+        left: 50%;
+        top: 50%;
+        margin-left: -15rem;
+        margin-top: -15rem;
+        z-index: 3;
+        padding: 3rem 2rem;
+        .icon{
+            width: @icon-size-after;
+            height: auto;
+        }
+        .detail{
+            .center();
+            flex-direction: column;
+            // align-items: center;
+        }
+    }
+}
+
+.computer{
+    user-select: none;
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+    font-size: 1.4rem;
+    text-align: center;
+    padding: 1rem 2rem;
+    .box1{
+        .boxconfig(0.75rem, 15rem, 19rem, 1.6rem);
+        .github{
+            .boxconfig(0rem, 15rem,19rem, 1.6rem,#24292f,#FAFAFA,normal);
+            .openconfig(8rem,7rem);
+        }
+    }
+
+    .box2{
+        .boxconfig(0.75rem, 15rem,19rem,1.6rem);
+        .center();
+        .box2-1{
+            .boxconfig(0rem, 15rem,12rem,1.6rem,#ffffff);
+            .docs{
+                .boxconfig(0rem,15rem,12rem,1.6rem,#ffffff);
+                .openconfig(4rem,3rem);
+                .border();
+            }
+        }
+        .box2-2{
+            .boxconfig(0rem, 15rem,6rem,1.6rem);
+            margin-top: 1rem;
+            .yuque{
+                .boxconfig(0rem, 15rem,6rem,1.6rem,#ffffff);
+                .openconfig(7rem,7rem);
+                .border();
+            }
+        }
+    }
+
+    .box3{
+        .boxconfig(0.75rem,15rem, 19rem,1.6rem);
+        .center();
+        .box3-1{
+            .boxconfig(0rem, 15rem,8rem,1.6rem);
+            .hexo{
+                .boxconfig(0rem, 15rem,8rem,1.6rem,#ffffff);
+                .border();
+                .openconfig(4rem,3rem);
+            }
+        }
+        .box3-2{
+            .boxconfig(0rem, 15rem,10rem,1.6rem);
+            margin-top: 1rem;
+            .apifox{
+                .boxconfig(0rem, 15rem,10rem,1.6rem,#ffffff);
+                .border();
+                .openconfig(10rem,8rem);
+            }
+        }
+    }
+
+    .box4{
+        .boxconfig(0.75rem, 15rem,19rem,1.6rem);
+        .center();
+        .box4-1{
+            .boxconfig(0rem, 15rem,9rem,1.6rem);
+            .pdf{
+                .boxconfig(0rem, 15rem,9rem,1.6rem,#ffffff);
+                .border();
+                .openconfig(4rem,3rem);
+            }
+        }
+        .box4-2{
+            .boxconfig(0rem, 15rem,9rem,1.6rem);
+            margin-top: 1rem;
+            .campus-repair{
+                .boxconfig(0rem, 15rem,9rem,1.6rem,#ffffff);
+                .border();
+                .openconfig(10rem,8rem);
+            }
+        }
+    }
+}
+
+.phonebox(@phoneboxwidth){
+    .computer{
+        padding: 1rem 0rem;
+        justify-content: center;
+        .box1{
+            width: @phoneboxwidth;
+            .github{
+                width: @phoneboxwidth;
+                &.show{
+                    width: 90vw;
+                    margin-left: -45vw;
+                    margin-top: -30vw;
+                }
+            }
+        }
+    
+        .box2{
+            width: @phoneboxwidth;
+            .box2-1{
+                width: @phoneboxwidth;
+                .docs{
+                    width: @phoneboxwidth;
+                    &.show{
+                        width: 90vw;
+                        margin-left: -45vw;
+                        margin-top: -30vw;
+                    }
+                }
+            }
+            .box2-2{
+                width: @phoneboxwidth;
+                margin-top: 1rem;
+                .yuque{
+                    width: @phoneboxwidth;
+                    &.show{
+                        width: 90vw;
+                        margin-left: -45vw;
+                        margin-top: -30vw;
+                    }
+                }
+            }
+        }
+    
+        .box3{
+            width: @phoneboxwidth;
+            .box3-1{
+                width: @phoneboxwidth;
+                .hexo{
+                    width: @phoneboxwidth;
+                    &.show{
+                        width: 90vw;
+                        margin-left: -45vw;
+                        margin-top: -30vw;
+                    }
+                }
+            }
+            .box3-2{
+                width: @phoneboxwidth;
+                margin-top: 1rem;
+                .apifox{
+                    width: @phoneboxwidth;
+                    &.show{
+                        width: 90vw;
+                        margin-left: -45vw;
+                        margin-top: -30vw;
+                    }
+                }
+            }
+        }
+    
+        .box4{
+            width: @phoneboxwidth;
+            .box4-1{
+                width: @phoneboxwidth;
+                .pdf{
+                    width: @phoneboxwidth;
+                    &.show{
+                        width: 90vw;
+                        margin-left: -45vw;
+                        margin-top: -30vw;
+                    }
+                }
+            }
+            .box4-2{
+                width: @phoneboxwidth;
+                margin-top: 1rem;
+                .campus-repair{
+                    width: @phoneboxwidth;
+                    &.show{
+                        width: 90vw;
+                        margin-left: -45vw;
+                        margin-top: -30vw;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:600px) {
+    .phonebox(42vw)
+}
+
+@media screen and (max-width:200px) {
+    .phonebox(90vw);
+    html{
+        font-size:30%;
+    }
+}
+@media screen and (max-width:300px) {
+    html{
+        font-size:40%;
+    }
+}
