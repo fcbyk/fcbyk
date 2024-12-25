@@ -1,1 +1,3 @@
-### Hi there, I'm Yoki! 👋 — a full-stack independent developer
+**Hi there! I'm Yoki👋** <br/>
+Aspiring full-stack indie developer 🌟 | Lifelong learner 🚀 <br/>
+Currently exploring the world of coding as a beginner, building step by step toward creating impactful projects.
