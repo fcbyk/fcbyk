@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      typed.js:
+        specifier: ^2.1.0
+        version: 2.1.0
       vue:
         specifier: ^3.5.13
         version: 3.5.13
@@ -969,6 +972,9 @@ packages:
   totalist@3.0.1:
     resolution: {integrity: sha512-sf4i37nQ2LBx4m3wB74y+ubopq6W/dIzXg0FDGjsYnZHVa1Da8FH853wlL2gtUhg+xJXjfk3kUZS3BRoQeoQBQ==}
     engines: {node: '>=6'}
+
+  typed.js@2.1.0:
+    resolution: {integrity: sha512-bDuXEf7YcaKN4g08NMTUM6G90XU25CK3bh6U0THC/Mod/QPKlEt9g/EjvbYB8x2Qwr2p6J6I3NrsoYaVnY6wsQ==}
 
   unicorn-magic@0.3.0:
     resolution: {integrity: sha512-+QBBXBCvifc56fsbuxZQ6Sic3wqqc3WWaqxs58gvJrcOuN83HGTCwz3oS5phzU9LthRNE9VrJCFCLUgHeeFnfA==}
@@ -1946,6 +1952,8 @@ snapshots:
     optional: true
 
   totalist@3.0.1: {}
+
+  typed.js@2.1.0: {}
 
   unicorn-magic@0.3.0: {}
 

@@ -1,12 +1,29 @@
-<script setup></script>
+<script setup>
+import ChatWindow from './components/ChatWindow.vue';
+import TitleBar from './components/TitleBar.vue';
+import Message from './components/Message.vue';
+</script>
 
 <template>
-  <div class="centered">项目初始化</div>
+  <div class="centered">
+    <chat-window>
+
+      <template #title-bar>
+        <title-bar></title-bar>
+      </template>
+
+      <template #main>
+        <message></message>
+      </template>
+    </chat-window>
+  </div>
 </template>
 
 <style lang="scss" scoped>
 .centered {
-  margin-top: 20vh;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 </style>
