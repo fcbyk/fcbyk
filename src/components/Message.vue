@@ -20,8 +20,8 @@ onMounted(() => {
 });
 </script>
 
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 .start {
-  margin: 1rem;
+  @apply m-4;
 }
 </style>

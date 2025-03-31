@@ -19,11 +19,8 @@ import Message from './components/Message.vue';
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 .centered {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  @apply flex justify-center items-center h-screen;
 }
 </style>
