@@ -2,6 +2,9 @@
   <button class="btn-1"></button>
   <button class="btn-2"></button>
   <button class="btn-3"></button>
+  <div class="title">
+    非常不愉快
+  </div>
 </template>
 
 <style lang="scss" scoped>
@@ -32,11 +35,20 @@
   @include btn(55px, #28c840);
 }
 
+.title {
+  display: none;
+}
+
 @media (max-width: 600px) {
+
   .btn-1,
   .btn-2,
   .btn-3 {
     display: none;
+  }
+
+  .title {
+    display: initial;
   }
 }
 </style>

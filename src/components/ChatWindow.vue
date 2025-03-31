@@ -24,27 +24,30 @@
   @apply flex flex-col;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.4);
   transition: all 0.3s ease;
+  overflow: hidden;
 
   .title-bar {
     @apply pointer-events-auto whitespace-nowrap;
     @apply overflow-hidden cursor-move box-border;
     @apply text-[#333] text-center text-[14px] leading-[30px];
-    @apply pr-[80px] pl-[120px] h-[30px] rounded-t-2xl;
+    @apply h-[30px] rounded-t-2xl ;
     border-bottom: 1px solid #f0f0f0;
-    background: rgba(250, 250, 250, 0.9);
+    background: rgb(250, 250, 250);
+    flex-shrink: 0;
   }
 
   .main {
-    overflow: auto;
-    flex: 1;
+    background-color: rgba(250, 250, 250, 0.9);
+    flex: 1 1 auto;
+    overflow: hidden
   }
+
 
   .bottom-bar {
     @apply w-full h-12;
-    @apply rounded-b-2xl;
     border-top: 1px solid #f0f0f0;
-    background-color: rgba(250, 250, 250, 0.9);
-    overflow: hidden;
+    background-color: rgb(250, 250, 250);
+    flex-shrink: 0;
   }
 }
 
