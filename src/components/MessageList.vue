@@ -45,7 +45,7 @@
 
 <script setup>
 import { marked } from 'marked'
-import { defineProps, ref, watch, nextTick } from 'vue'
+import { ref, watch, nextTick } from 'vue'
 
 // 默认头像
 const userAvatar = ref('https://pic1.zhimg.com/v2-abed1a8c04700ba7d72b45195223e0ff_xs.jpg')

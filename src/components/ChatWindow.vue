@@ -19,12 +19,14 @@
 <style lang="postcss" scoped>
 .chat-window {
   @apply absolute;
-  @apply w-[50vw] h-[80vh] rounded-2xl;
+  @apply rounded-2xl;
   @apply bg-white;
   @apply flex flex-col;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.4);
   transition: all 0.3s ease;
   overflow: hidden;
+  height: 80%;
+  width: 50%;
 
   .title-bar {
     @apply pointer-events-auto whitespace-nowrap;
@@ -53,7 +55,9 @@
 
 @media (max-width: 600px) {
   .chat-window {
-    @apply w-[100vw] h-[100vh] rounded-none;
+    @apply rounded-none;
+    width: 100%;
+    height: 100%;
   }
 }
 </style>

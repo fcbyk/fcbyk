@@ -72,6 +72,6 @@ const handleMenuClick = async ({ item, index }) => {
 
 <style lang="postcss" scoped>
 .centered {
-  @apply flex justify-center items-center h-screen;
+  @apply flex justify-center items-center h-[100dvh];
 }
 </style>
