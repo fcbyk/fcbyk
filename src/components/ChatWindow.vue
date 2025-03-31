@@ -9,16 +9,19 @@
       <slot name="main"></slot>
     </div>
 
+    <div class="bottom-bar">
+      <slot name="bottom-bar"></slot>
+    </div>
+
   </div>
 </template>
-
-<script lang="ts" setup></script>
 
 <style lang="postcss" scoped>
 .chat-window {
   @apply absolute;
   @apply w-[50vw] h-[80vh] rounded-2xl;
   @apply bg-white;
+  @apply flex flex-col;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.4);
   transition: all 0.3s ease;
 
@@ -26,9 +29,22 @@
     @apply pointer-events-auto whitespace-nowrap;
     @apply overflow-hidden cursor-move box-border;
     @apply text-[#333] text-center text-[14px] leading-[30px];
-    @apply pr-[80px] pl-[120px] h-[30px] rounded-t-2xl; ;
+    @apply pr-[80px] pl-[120px] h-[30px] rounded-t-2xl;
     border-bottom: 1px solid #f0f0f0;
     background: rgba(250, 250, 250, 0.9);
+  }
+
+  .main {
+    overflow: auto;
+    flex: 1;
+  }
+
+  .bottom-bar {
+    @apply w-full h-12;
+    @apply rounded-b-2xl;
+    border-top: 1px solid #f0f0f0;
+    background-color: rgba(250, 250, 250, 0.9);
+    overflow: hidden;
   }
 }
 

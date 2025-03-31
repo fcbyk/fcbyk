@@ -2,6 +2,12 @@
 import ChatWindow from './components/ChatWindow.vue';
 import TitleBar from './components/TitleBar.vue';
 import Message from './components/Message.vue';
+import ActionMenu from '@/components/ActionMenu.vue'
+import menu from './data/menu';
+
+const handleMenuClick = ({ item, index }) => {
+  console.log(`点击了 ${item}，索引 ${index}`)
+}
 </script>
 
 <template>
@@ -14,6 +20,10 @@ import Message from './components/Message.vue';
 
       <template #main>
         <message></message>
+      </template>
+
+      <template #bottom-bar>
+        <ActionMenu :menu @menu-click="handleMenuClick" />
       </template>
     </chat-window>
   </div>
