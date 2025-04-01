@@ -1,5 +1,4 @@
-type MessageList = {
-    id: string;
+declare type Message = {
 
     // 消息发送者
     role: "me" | "user";
@@ -18,4 +17,6 @@ type MessageList = {
 
     // 消息加载时间
     loadingTime: number;
-}[];
+}
+
+declare type MessageList = Message[];

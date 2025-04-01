@@ -24,12 +24,12 @@
           'bg-white mr-10 rounded-bl-none my-message-arrow': message.role === 'me',
           'opacity-80': message.status === 'loading'
         }">
-          <div class="leading-normal break-words" v-html="message.content"></div>
           <div class="flex justify-center gap-1 mt-2" v-if="message.status === 'loading'">
             <div class="w-2 h-2 bg-gray-400 rounded-full animate-message-pulse"></div>
             <div class="w-2 h-2 bg-gray-400 rounded-full animate-message-pulse animation-delay-200"></div>
             <div class="w-2 h-2 bg-gray-400 rounded-full animate-message-pulse animation-delay-400"></div>
           </div>
+          <div class="leading-normal break-words" v-else v-html="message.content"></div>
         </div>
       </div>
     </template>
@@ -37,21 +37,26 @@
 </template>
 
 <script setup>
-import { ref, watch, nextTick } from 'vue'
+import { ref, watch, nextTick,inject} from 'vue'
 import formatTime from '@/utils/formatTime'
 import chatConfig from '@/chat.config'
 
 const props = defineProps({
-  messages: {
-    type: Array,
-    required: true,
-    default: []
-  },
   autoScroll: {
     type: Boolean,
     default: true
   }
 })
+
+const messages = inject('messages')
+
+messages.value = [
+  {
+    role: 'me',
+    content: '你好！我是不愉，你有什么要问我的吗？',
+    time: Date.now()
+  }
+]
 
 const userAvatar = chatConfig.avatar.user
 const myAvatar = chatConfig.avatar.me
@@ -63,7 +68,7 @@ const shouldShowTime = (message, index) => {
   // 第一条消息总是显示时间
   if (index === 0) return true
 
-  const prevMessage = props.messages[index - 1]
+  const prevMessage = messages.value[index - 1]
   if (!prevMessage.time) return false
 
   // 如果与前一条消息时间间隔超过阈值，则显示时间
@@ -72,7 +77,7 @@ const shouldShowTime = (message, index) => {
 
 // 监听消息变化自动滚动
 watch(
-  () => props.messages,
+  () => messages.value,
   () => nextTick(() => {
     // 自动滚动到底部
     if (container.value && props.autoScroll)

@@ -4,57 +4,6 @@ import TitleBar from './components/TitleBar.vue';
 import ActionMenu from '@/components/ActionMenu.vue'
 import MessageList from './components/MessageList.vue';
 import WaveBackground from '@/components/bg/WaveBackground.vue';
-import sleep from './utils/sleep';
-import chatConfig from './chat.config';
-import { ref } from 'vue'
-
-const isSending = ref(false)
-const menu = chatConfig.actionMenu
-
-const messageHistory = ref([
-  {
-    role: 'me',
-    content: '你好！我是不愉，你有什么要问我的吗？',
-    time: Date.now()
-  }
-])
-
-const handleMenuClick = async ({ item, index }) => {
-  // 如果正在发送消息，则直接返回，不执行后续操作
-  if (isSending.value) return;
-
-  messageHistory.value.push({
-    role: 'user',
-    content: item,
-    time: Date.now()
-  })
-
-  isSending.value = true
-
-  const aiMessage = {
-    role: 'me',
-    content: '',
-    status: 'loading',
-    time: Date.now()
-  }
-  messageHistory.value.push(aiMessage)
-
-  try {
-    await sleep(1000)
-
-    const responseIndex = messageHistory.value.length - 1
-
-    messageHistory.value[responseIndex] = {
-      role: 'me',
-      content: `系统繁忙，请稍后再试`,
-      status: 'completed',
-      time: Date.now()
-    }
-  } finally {
-    // 无论成功还是失败，最终都要将 isSending 设为 false
-    isSending.value = false
-  }
-}
 </script>
 
 <template>
@@ -68,15 +17,15 @@ const handleMenuClick = async ({ item, index }) => {
     <chat-window>
 
       <template #title-bar>
-        <title-bar></title-bar>
+        <title-bar />
       </template>
 
       <template #main>
-        <MessageList :messages="messageHistory" />
+        <MessageList />
       </template>
 
       <template #bottom-bar>
-        <ActionMenu :menu @menu-click="handleMenuClick" />
+        <ActionMenu/>
       </template>
     </chat-window>
 

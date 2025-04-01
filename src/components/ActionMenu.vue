@@ -7,18 +7,24 @@
 </template>
 
 <script setup>
-const props = defineProps({
-  menu: {
-    type: Array,
-    required: true,
-    default: () => []
+import { inject, ref } from 'vue'
+import SendMessage from '@/utils/SendMessage'
+import chatConfig from '@/chat.config'
+
+const menu = chatConfig.actionMenu
+const isSending = ref(false)
+const messageHistory = inject('messages')
+const sendMessage = new SendMessage(messageHistory)
+
+const handleClick = async (item, index) => {
+  if (isSending.value) return;
+  try {
+    await sendMessage.userSendMessage(item)
+    isSending.value = true
+    await sendMessage.meSendMessage("系统繁忙，请稍后再试", 1000)
+  } finally {
+    isSending.value = false
   }
-})
-
-const emit = defineEmits(['menu-click'])
-
-const handleClick = (item, index) => {
-  emit('menu-click', { item, index })
 }
 </script>
 
