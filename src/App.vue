@@ -4,6 +4,7 @@ import TitleBar from './components/TitleBar.vue';
 import ActionMenu from '@/components/ActionMenu.vue'
 import MessageList from './components/MessageList.vue';
 import menu from './data/menu';
+import sleep from './utils/sleep';
 import { ref } from 'vue'
 
 const newMessage = ref('')
@@ -18,6 +19,8 @@ const messageHistory = ref([
 ])
 
 const handleMenuClick = async ({ item, index }) => {
+  // 如果正在发送消息，则直接返回，不执行后续操作
+  if (isSending.value) return;
 
   const content = newMessage.value.trim()
 
@@ -38,21 +41,26 @@ const handleMenuClick = async ({ item, index }) => {
   }
   messageHistory.value.push(aiMessage)
 
-  setTimeout(() => {
+  try {
+    await sleep(1000)
+
     const responseIndex = messageHistory.value.length - 1
+
     messageHistory.value[responseIndex] = {
       role: 'me',
       content: `系统繁忙，请稍后再试`,
       status: 'completed',
       time: Date.now()
     }
+  } finally {
+    // 无论成功还是失败，最终都要将 isSending 设为 false
     isSending.value = false
-  }, 1000)
+  }
 }
 </script>
 
 <template>
-  <div class="centered">
+  <div class="flex justify-center items-center h-[100dvh]">
     <chat-window>
 
       <template #title-bar>
@@ -69,9 +77,3 @@ const handleMenuClick = async ({ item, index }) => {
     </chat-window>
   </div>
 </template>
-
-<style lang="postcss" scoped>
-.centered {
-  @apply flex justify-center items-center h-[100dvh];
-}
-</style>
