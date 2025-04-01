@@ -11,7 +11,7 @@ const isSending = ref(false)
 
 const messageHistory = ref([
   {
-    role: 'assistant',
+    role: 'me',
     content: '你好！我是不愉，你有什么要问我的吗？',
     time: Date.now()
   }
@@ -20,7 +20,7 @@ const messageHistory = ref([
 const handleMenuClick = async ({ item, index }) => {
 
   const content = newMessage.value.trim()
-  
+
   messageHistory.value.push({
     role: 'user',
     content: item,
@@ -31,7 +31,7 @@ const handleMenuClick = async ({ item, index }) => {
   isSending.value = true
 
   const aiMessage = {
-    role: 'assistant',
+    role: 'me',
     content: '',
     status: 'loading',
     time: Date.now()
@@ -41,7 +41,7 @@ const handleMenuClick = async ({ item, index }) => {
   setTimeout(() => {
     const responseIndex = messageHistory.value.length - 1
     messageHistory.value[responseIndex] = {
-      role: 'assistant',
+      role: 'me',
       content: `系统繁忙，请稍后再试`,
       status: 'completed',
       time: Date.now()
@@ -60,7 +60,7 @@ const handleMenuClick = async ({ item, index }) => {
       </template>
 
       <template #main>
-        <MessageList :messages="messageHistory"/>
+        <MessageList :messages="messageHistory" />
       </template>
 
       <template #bottom-bar>

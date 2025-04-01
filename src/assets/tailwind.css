@@ -1,3 +1,52 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.no-scrollbar{
+  /* 关闭滚动条  */
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+
+  /* IE/Edge */
+  &::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Opera  */
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+  }
+}
+
+.animation-delay-200 {
+    animation-delay: 0.2s;
+}
+
+.animation-delay-400 {
+    animation-delay: 0.4s;
+}
+
+/* 微信风格三角形箭头 */
+.user-message-arrow::after {
+    content: '';
+    position: absolute;
+    right: -5px;
+    top: 10px;
+    width: 0;
+    height: 0;
+    border-width: 6px 0 6px 6px;
+    border-color: transparent transparent transparent #95ec69;
+}
+  
+.my-message-arrow::before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: 10px;
+    width: 0;
+    height: 0;
+    border-width: 6px 6px 6px 0;
+    border-color: transparent #ffffff transparent transparent;
+}
