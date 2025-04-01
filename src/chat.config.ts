@@ -8,4 +8,10 @@ export default {
 
     // 隔多久显示一次时间
     timeThreshold: 1000 * 60 * 5, // 5分钟
+
+    actionMenu: [
+        "域名由来",
+        "关于我",
+        "作品集"
+    ]
 }

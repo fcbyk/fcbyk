@@ -4,12 +4,12 @@ import TitleBar from './components/TitleBar.vue';
 import ActionMenu from '@/components/ActionMenu.vue'
 import MessageList from './components/MessageList.vue';
 import WaveBackground from '@/components/bg/WaveBackground.vue';
-import menu from './data/menu';
 import sleep from './utils/sleep';
+import chatConfig from './chat.config';
 import { ref } from 'vue'
 
-const newMessage = ref('')
 const isSending = ref(false)
+const menu = chatConfig.actionMenu
 
 const messageHistory = ref([
   {
@@ -23,15 +23,12 @@ const handleMenuClick = async ({ item, index }) => {
   // 如果正在发送消息，则直接返回，不执行后续操作
   if (isSending.value) return;
 
-  const content = newMessage.value.trim()
-
   messageHistory.value.push({
     role: 'user',
     content: item,
     time: Date.now()
   })
 
-  newMessage.value = ''
   isSending.value = true
 
   const aiMessage = {
