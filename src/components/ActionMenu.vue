@@ -7,16 +7,16 @@
 </template>
 
 <script setup>
-import { inject, ref } from 'vue'
+import { inject, onMounted } from 'vue'
 import SendMessage from '@/utils/SendMessage'
 import chatConfig from '@/chat.config'
 
 const menu = chatConfig.actionMenu
-const isSending = ref(false)
+const isSending = inject('isSending')
 const messageHistory = inject('messages')
 const sendMessage = new SendMessage(messageHistory)
 
-const handleClick = async (item, index) => {
+const handleClick = async (item) => {
   if (isSending.value) return;
   try {
     await sendMessage.userSendMessage(item)
@@ -26,6 +26,12 @@ const handleClick = async (item, index) => {
     isSending.value = false
   }
 }
+
+onMounted(async () => {
+  isSending.value = true
+  await sendMessage.meSendMessage("你好！我是不愉，你有什么要问我的吗？", 1000)
+  isSending.value = false
+})
 </script>
 
 <style lang="postcss" scoped>

@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col h-full gap-4 p-4 overflow-y-auto no-scrollbar" ref="container">
+  <div class="flex flex-col h-full gap-4 p-4 overflow-y-auto no-scrollbar msg-window" ref="container">
     <template v-for="(message, index) in messages" :key="index">
 
       <!-- 时间分隔 -->
@@ -50,14 +50,6 @@ const props = defineProps({
 
 const messages = inject('messages')
 
-messages.value = [
-  {
-    role: 'me',
-    content: '你好！我是不愉，你有什么要问我的吗？',
-    time: Date.now()
-  }
-]
-
 const userAvatar = chatConfig.avatar.user
 const myAvatar = chatConfig.avatar.me
 const container = ref(null)
@@ -93,5 +85,11 @@ watch(
   max-width: calc(100% - 48px);
   box-shadow: 0 1px 1px rgba(73, 73, 73, 0.1);
   position: relative;
+}
+
+@media (max-width: 600px) {
+  .msg-window{
+    padding: 5px 8px 10px 8px;
+  }
 }
 </style>

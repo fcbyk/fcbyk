@@ -3,9 +3,14 @@
   <button class="btn-2"></button>
   <button class="btn-3"></button>
   <div class="title">
-    非常不愉快
+    {{ isSending ? '正在输入...' : '非常不愉快' }}
   </div>
 </template>
+
+<script setup>
+import { inject } from 'vue'
+const isSending = inject('isSending')
+</script>
 
 <style lang="scss" scoped>
 @mixin btn($left, $color) {
@@ -48,7 +53,7 @@
   }
 
   .title {
-    display: initial;
+    @apply flex items-center justify-center w-full h-full;
   }
 }
 </style>
