@@ -1,27 +1,29 @@
 <template>
   <div class="action-menu-container">
     <div v-for="(item, index) in menu" :key="index" class="menu-item" @click="handleClick(item, index)">
-      {{ item }}
+      {{ item.label }}
     </div>
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { inject, onMounted } from 'vue'
 import SendMessage from '@/utils/SendMessage'
 import chatConfig from '@/chat.config'
 
-const menu = chatConfig.actionMenu
-const isSending = inject('isSending')
-const messageHistory = inject('messages')
+const menu:actionMenu = chatConfig.actionMenu
+const isSending:any = inject('isSending')
+const messageHistory:any = inject('messages')
 const sendMessage = new SendMessage(messageHistory)
 
-const handleClick = async (item) => {
+const handleClick = async (item:actionMenuItem,index:number) => {
   if (isSending.value) return;
   try {
-    await sendMessage.userSendMessage(item)
+    await sendMessage.userSendMessage(item.action.question.content)
     isSending.value = true
-    await sendMessage.meSendMessage("系统繁忙，请稍后再试", 1000)
+    for (const element of item.action.answer) {
+      await sendMessage.meSendMessage(element.content, element.loadingTime)
+    }
   } finally {
     isSending.value = false
   }

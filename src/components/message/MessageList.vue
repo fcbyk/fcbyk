@@ -1,13 +1,11 @@
 <template>
   <div class="flex flex-col h-full gap-4 p-4 overflow-y-auto msg-list no-scrollbar " ref="container">
     <template v-for="(message, index) in messages" :key="index">
-
-      <!-- 时间 -->
+      
       <div class="text-[#999] text-center my-2 text-xs" v-if="shouldShowTime(message, index)">
         {{ formatTime(message.time) }}
       </div>
 
-      <!-- 消息 -->
       <MessageItem :role="message.role">
         <TextMessage :role="message.role" :content="message.content" :status="message.status" />
       </MessageItem>

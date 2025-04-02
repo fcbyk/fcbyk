@@ -124,7 +124,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1; /* 确保背景在内容后面 */
+    z-index: -1;
     display: block;
   }
   </style>
