@@ -52,17 +52,4 @@
     flex-shrink: 0;
   }
 }
-
-@media (max-width: 600px) {
-  .chat-window {
-    @apply rounded-none;
-    width: 100%;
-    height: 100%;
-    .title-bar{
-      height: 40px;
-      border-bottom: 1px solid #f5f5f5;
-      background-color: rgba(250, 250, 250, 0.9);
-    }
-  }
-}
 </style>

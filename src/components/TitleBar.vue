@@ -43,17 +43,4 @@ const isSending = inject('isSending')
 .title {
   display: none;
 }
-
-@media (max-width: 600px) {
-
-  .btn-1,
-  .btn-2,
-  .btn-3 {
-    display: none;
-  }
-
-  .title {
-    @apply flex items-center justify-center w-full h-full;
-  }
-}
 </style>

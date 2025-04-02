@@ -2,7 +2,7 @@
 import ChatWindow from './components/ChatWindow.vue';
 import TitleBar from './components/TitleBar.vue';
 import ActionMenu from '@/components/ActionMenu.vue'
-import MessageList from './components/MessageList.vue';
+import MessageList from './components/message/MessageList.vue';
 import WaveBackground from '@/components/bg/WaveBackground.vue';
 </script>
 

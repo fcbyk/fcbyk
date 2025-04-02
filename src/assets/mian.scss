@@ -1,4 +1,14 @@
-@use './base' as *;
+@use './media.scss' as *;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,body {
+  font-size: 15px;
+  height: 100%;
+}
 
 #app {
   min-height: 80%;
