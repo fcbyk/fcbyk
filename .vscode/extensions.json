@@ -1,8 +1,8 @@
 {
     "recommendations": [
-      "vue.volar",               // Vue 官方插件（Volar）
-      "csstools.postcss-language-support", // PostCSS 高亮支持
-      "bradlc.vscode-tailwindcss", // Tailwind CSS 智能提示
-      "stylelint.vscode-stylelint" // Stylelint CSS 校验
+      "vue.volar",
+      "csstools.postcss-language-support",
+      "bradlc.vscode-tailwindcss",
+      "stylelint.vscode-stylelint" 
     ]
   }

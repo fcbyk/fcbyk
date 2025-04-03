@@ -1,5 +1,5 @@
 import './assets/mian.scss'
-import './assets/tailwind.css'
+import './assets/tailwind.pcss'
 
 import { createApp,ref} from 'vue'
 import App from './App.vue'
