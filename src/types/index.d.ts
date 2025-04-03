@@ -29,10 +29,21 @@ declare interface QA {
     answer: MessageConfig[];
 }
 
-declare type actionMenuItem = {
-    label: string,
-    action: QA
-}
+type ActionMenuItemBase = {
+    label: string;
+    action: QA;
+};
+
+type ActionMenuItemWithChildren = {
+    label: string;
+    child: {
+        label: string;
+        action: QA;
+    }[];
+    action?: never;
+};
+
+type ActionMenuItem = ActionMenuItemBase | ActionMenuItemWithChildren;
 
 declare type actionMenu = actionMenuItem[]
 

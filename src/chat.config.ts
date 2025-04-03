@@ -1,6 +1,15 @@
 import domain from "./store/domain"
 import works from "./store/works"
 import about from "./store/about"
+import { text } from "./utils/createMsg"
+
+const menu = (label: string, action: QA = {
+    question: text(label),
+    answer: [text("服务器繁忙，请稍后再试", 3000)]
+}) => ({
+    label,
+    action,
+})
 
 export default {
 
@@ -18,17 +27,14 @@ export default {
 
 
     actionMenu: [
-        {
-            label: "域名由来",
-            action: domain
-        },
-        {
-            label: "作品集",
-            action: works
-        },
+        menu("域名由来", domain),
+        menu("近期规划"),
         {
             label: "关于作者",
-            action: about
+            child: [
+                menu("作品集", works),
+                menu("自我介绍",about)
+            ]
         }
     ]
 } as chatConfig

@@ -10,7 +10,7 @@ import WaveBackground from '@/components/bg/WaveBackground.vue';
   <div class="flex justify-center items-center h-[100dvh]">
 
     <WaveBackground backgroundColor="#f5f9ff" waveColorStart="rgba(80, 180, 240, 0.6)"
-      waveColorEnd="rgba(180, 220, 255, 0.2)" :waveHeight="40" :secondaryWaveHeight="25" :animationSpeed="0.04"
+      waveColorEnd="rgba(180, 220, 255, 0.2)" :waveHeight="30" :secondaryWaveHeight="20" :animationSpeed="0.04"
       :wavePosition="0.6" />
 
     <chat-window>
