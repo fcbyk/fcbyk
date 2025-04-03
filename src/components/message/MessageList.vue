@@ -16,7 +16,7 @@
 
 <script setup>
 import { ref, watch, nextTick, inject } from 'vue'
-import formatTime from '@/utils/formatTime'
+import { formatTime } from '@/utils'
 import chatConfig from '@/chat.config'
 import MessageItem from './MessageItem.vue'
 import TextMessage from './TextMessage.vue'

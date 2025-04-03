@@ -1,7 +1,8 @@
-import sleep from "./sleep";
+import { sleep } from "@/utils";
 import { Ref } from "vue";
+import { Message } from "@/types";
 
-export default class SendMessage {
+export class SendMessage {
 
     private MessageList: Ref<Message[]>;
 

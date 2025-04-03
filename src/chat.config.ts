@@ -1,7 +1,8 @@
 import domain from "./store/domain"
 import works from "./store/works"
 import about from "./store/about"
-import { text } from "./utils/createMsg"
+import { createTextMsg as text } from "./utils"
+import { QA, ChatConfig } from "./types"
 
 const menu = (label: string, action: QA = {
     question: text(label),
@@ -33,8 +34,8 @@ export default {
             label: "关于作者",
             child: [
                 menu("作品集", works),
-                menu("自我介绍",about)
+                menu("自我介绍", about)
             ]
         }
     ]
-} as chatConfig
+} as ChatConfig

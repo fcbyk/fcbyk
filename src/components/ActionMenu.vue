@@ -21,8 +21,9 @@
 
 <script lang="ts" setup>
 import { inject, ref, onMounted, onUnmounted } from 'vue'
-import SendMessage from '@/utils/SendMessage'
+import { SendMessage } from '@/utils';
 import chatConfig from '@/chat.config'
+import { QA } from '@/types';
 
 type ActionMenuItemBase = {
   label: string;
