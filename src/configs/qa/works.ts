@@ -1,6 +1,6 @@
 import { createTextMsg as t, defineQA } from "@/utils"
 
-export default defineQA({
+export const works = defineQA({
     question: t("你写过哪些项目"),
     answer: [
         t("可以在GitHub访问我写过的项目噢", 1500),
@@ -9,7 +9,7 @@ export default defineQA({
              hover:text-[#475f8c]
              hover:underline 
              transition-colors 
-             duration-200">
+             duration-200" target="_blank">
              github.com/fcbyk
              </a>`, 1000)
     ]

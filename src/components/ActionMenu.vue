@@ -22,7 +22,7 @@
 <script lang="ts" setup>
 import { inject, ref, onMounted, onUnmounted } from 'vue'
 import { SendMessage } from '@/utils';
-import chatConfig from '@/chat.config'
+import chatConfig from '@/configs'
 import { QA } from '@/types';
 
 type ActionMenuItemBase = {

@@ -1,6 +1,6 @@
 import { createTextMsg as t, defineQA } from "@/utils"
 
-export default defineQA({
+export const about = defineQA({
     question: t("可以介绍一下你自己吗"),
     answer: [
         t("还没想好怎么介绍自己", 1500),

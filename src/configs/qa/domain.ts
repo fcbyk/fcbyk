@@ -1,6 +1,6 @@
 import { createTextMsg as t, defineQA } from "@/utils"
 
-export default defineQA({
+export const domain = defineQA({
     question: t("fcbyk.com这个域名是怎么来的？"),
     answer: [
         t("fcbyk是非常不愉快的拼音首字母", 800),

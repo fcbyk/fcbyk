@@ -13,8 +13,8 @@
     </div>
 </template>
 
-<script setup>
-import chatConfig from '@/chat.config'
+<script lang="ts" setup>
+import chatConfig from '@/configs'
 
 const userAvatar = chatConfig.avatar.user
 const myAvatar = chatConfig.avatar.me
