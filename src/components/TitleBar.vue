@@ -2,14 +2,17 @@
   <button class="btn-1"></button>
   <button class="btn-2"></button>
   <button class="btn-3"></button>
-  <div class="title">
-    {{ isSending ? '正在输入...' : '非常不愉快' }}
-  </div>
+  <div class="title">{{ displayText }}</div>
 </template>
 
-<script setup>
-import { inject } from 'vue'
-const isSending = inject('isSending')
+<script lang="ts" setup>
+import { useMessageStore } from '@/stores';
+import { computed } from 'vue'
+import { useHead } from '@vueuse/head'
+
+const msgStore = useMessageStore()
+const displayText = computed(() => msgStore.isTyping ? '正在输入...' : '非常不愉快')
+useHead({ title: displayText })
 </script>
 
 <style lang="scss" scoped>

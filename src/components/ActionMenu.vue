@@ -2,14 +2,17 @@
   <div class="action-menu-wrapper">
     <div class="action-menu-container">
       <div v-for="(item, index) in menu" :key="index" class="menu-item" @click.stop="handleItemClick(item, index)"
-        :class="{ 'has-child': itemHasChildren(item), 'active': activeMenuIndex === index }">
+        :class="{
+          'has-child': isExpandable(item),
+          'active': menuState.isOpen(index)
+        }">
         {{ item.label }}
-        <span v-if="itemHasChildren(item)" class="menu-arrow">▼</span>
+        <span v-if="isExpandable(item)" class="menu-arrow">▼</span>
 
         <transition name="slide-up">
-          <div v-if="itemHasChildren(item) && activeMenuIndex === index" class="sub-menu-container" @click.stop>
-            <div v-for="(childItem, childIndex) in getChildren(item)" :key="childIndex" class="sub-menu-item"
-              @click="handleChildClick(childItem, index)">
+          <div v-if="isExpandable(item) && menuState.isOpen(index)" class="sub-menu-container" @click.stop>
+            <div v-for="(childItem, childIndex) in getChildItems(item)" :key="childIndex" class="sub-menu-item"
+              @click="handleChildClick(childItem)">
               {{ childItem.label }}
             </div>
           </div>
@@ -18,107 +21,36 @@
     </div>
   </div>
 </template>
-
 <script lang="ts" setup>
-import { inject, ref, onMounted, onUnmounted } from 'vue'
-import { SendMessage } from '@/utils';
+import { useMessageStore } from '@/stores/message'
+import { useMenuNavigation, useMenuState, useClickOutside } from '@/utils'
+import { onMounted } from 'vue'
 import chatConfig from '@/configs'
-import { QA } from '@/types';
+import type { ActionMenuItem, ActionMenuItemBase } from '@/types'
 
-type ActionMenuItemBase = {
-  label: string;
-  action: QA;
-};
+const menu = chatConfig.actionMenu as ActionMenuItem[]
+const { isTyping, questionAnswer, init: msgListInit } = useMessageStore()
 
-type ActionMenuItemWithChildren = {
-  label: string;
-  child: {
-    label: string;
-    action: QA;
-  }[];
-  action?: never;
-};
+const menuState = useMenuState()
+const { getChildItems, isExpandable } = useMenuNavigation()
 
-type ActionMenuItem = ActionMenuItemBase | ActionMenuItemWithChildren;
-
-const menu = chatConfig.actionMenu as ActionMenuItem[];
-const isSending: any = inject('isSending')
-const messageHistory: any = inject('messages')
-const sendMessage = new SendMessage(messageHistory)
-
-// 当前激活的菜单索引
-const activeMenuIndex = ref<number | null>(null)
-
-// 检查菜单项是否有子项
-const itemHasChildren = (item: ActionMenuItem): item is ActionMenuItemWithChildren => {
-  return 'child' in item && item.child?.length > 0
-}
-
-// 获取子菜单项
-const getChildren = (item: ActionMenuItem) => {
-  return itemHasChildren(item) ? item.child : []
-}
-
-// 处理菜单项点击
 const handleItemClick = (item: ActionMenuItem, index: number) => {
-  // 如果点击的是当前已打开的菜单，则关闭它
-  if (activeMenuIndex.value === index) {
-    activeMenuIndex.value = null
+  if (isExpandable(item)) {
+    menuState.toggle(index)
     return
   }
 
-  // 如果有子菜单，则展开/切换
-  if (itemHasChildren(item)) {
-    activeMenuIndex.value = index
-    return
-  }
-
-  if (isSending.value) return
-
-  // 如果没有子菜单，直接执行动作
-  handleAction(item)
+  if (isTyping) return
+  questionAnswer(item.action)
 }
 
-// 处理子菜单项点击
-const handleChildClick = (childItem: { label: string; action: QA }, parentIndex: number) => {
-  activeMenuIndex.value = null // 关闭子菜单
-  handleAction(childItem)
+const handleChildClick = (childItem: ActionMenuItemBase) => {
+  menuState.close()
+  questionAnswer(childItem.action)
 }
 
-// 执行动作
-const handleAction = async (item: { action: QA }) => {
-  if (isSending.value) return
-
-  try {
-    isSending.value = true
-
-    await sendMessage.userSendMessage(item.action.question.content)
-
-    for (const element of item.action.answer) {
-      await sendMessage.meSendMessage(element.content, element.loadingTime)
-    }
-  } finally {
-    isSending.value = false
-  }
-}
-
-// 点击页面其他地方关闭菜单
-const handleClickOutside = () => {
-  activeMenuIndex.value = null
-}
-
-// 添加全局点击事件监听
-onMounted(async () => {
-  document.addEventListener('click', handleClickOutside)
-  isSending.value = true
-  await sendMessage.meSendMessage("你好！我是不愉，你有什么要问我的吗？", 1000)
-  isSending.value = false
-})
-
-// 移除事件监听
-onUnmounted(() => {
-  document.removeEventListener('click', handleClickOutside)
-})
+onMounted(() => msgListInit())
+useClickOutside(() => menuState.close())
 </script>
 
 <style lang="postcss" scoped>

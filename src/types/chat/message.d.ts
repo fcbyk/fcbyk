@@ -1,6 +1,10 @@
 // 基础消息配置
+export type MessageType = 'text' | 'image' | 'audio' | 'video';
+export type MessageRole = 'me' | 'user';
+export type MessageStatus = 'loading' | 'completed' | 'error';
+
 export interface MessageConfig {
-    type: "text" | "image" | "audio" | "video";
+    type: MessageType;
     content: string;
     loadingTime: number;
 }
@@ -8,8 +12,8 @@ export interface MessageConfig {
 // 完整消息结构
 export interface Message extends MessageConfig {
     time: number;
-    role: "me" | "user";
-    status: 'loading' | 'completed' | 'error';
+    role: MessageRole;
+    status: MessageStatus;
 }
 
 // 消息列表

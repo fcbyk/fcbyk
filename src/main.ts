@@ -1,14 +1,14 @@
 import './style/mian.scss'
 import './style/tailwind.pcss'
 import configs from './configs'
-import { createApp,ref} from 'vue'
+import { createApp } from 'vue'
+import { createPinia } from 'pinia'
+import { createHead } from '@vueuse/head'
 import App from './App.vue'
 
 const app = createApp(App)
 
 console.log(...(configs.cliPrint ?? []));
-
-app.provide("isSending", ref(false))
-app.provide('messages', ref([]))
+app.use(createPinia()).use(createHead())
 
 app.mount('#app')

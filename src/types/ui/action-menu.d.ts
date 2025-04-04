@@ -1,13 +1,13 @@
 import type { QA } from '../chat/qa';
 
 // 基础菜单项
-type ActionMenuItemBase = {
+export type ActionMenuItemBase = {
   label: string;
   action: QA;
 };
 
 // 带子菜单的项
-type ActionMenuItemWithChildren = {
+export type ActionMenuItemWithChildren = {
   label: string;
   child: {
     label: string;
@@ -17,7 +17,7 @@ type ActionMenuItemWithChildren = {
 };
 
 // 联合类型
-type ActionMenuItem = ActionMenuItemBase | ActionMenuItemWithChildren;
+export type ActionMenuItem = ActionMenuItemBase | ActionMenuItemWithChildren;
 
 // 菜单列表
-type ActionMenu = ActionMenuItem[];
+export type ActionMenu = ActionMenuItem[];
