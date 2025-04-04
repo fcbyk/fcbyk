@@ -1,7 +1,7 @@
 <template>
-  <div class="flex flex-col h-full gap-4 p-4 overflow-y-auto msg-list no-scrollbar" ref="container">
+  <div class="message-list-container no-scrollbar" ref="container">
     <template v-for="(message, index) in messageStore.messageList" :key="message.time">
-      <div class="text-[#999] text-center my-2 text-xs" v-if="shouldShowTime(message, index)">
+      <div class="time-divider" v-if="shouldShowTime(message, index)">
         {{ formatTime(message.time) }}
       </div>
 
@@ -45,9 +45,17 @@ watch(
 </script>
 
 <style lang="postcss" scoped>
+.message-list-container {
+  @apply flex flex-col h-full gap-4 p-4 overflow-y-auto;
+
+  .time-divider {
+    @apply text-[#999] text-center my-2 text-xs;
+  }
+}
+
 @media (max-width: 600px) {
-  .msg-list {
-    padding: 5px 8px 10px 8px;
+  .message-list-container {
+    @apply py-[5px] px-[8px] pb-[10px];
   }
 }
 </style>

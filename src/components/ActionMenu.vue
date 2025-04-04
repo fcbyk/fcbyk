@@ -55,89 +55,64 @@ useClickOutside(() => menuState.close())
 
 <style lang="postcss" scoped>
 .action-menu-wrapper {
-  position: relative;
-  width: 100%;
+  @apply relative w-full h-full;
+
+  .action-menu-container {
+    @apply flex w-full h-full text-center relative;
+
+    .menu-item {
+      @apply flex-1 cursor-pointer transition-all duration-300 flex items-center justify-center relative;
+      @apply py-3 bg-white border border-gray-200;
+
+      &:hover {
+        @apply text-gray-800;
+      }
+
+      &:not(:last-child) {
+        @apply border-r-0;
+      }
+
+      &.has-child.active {
+        @apply text-gray-800;
+
+        .menu-arrow {
+          @apply rotate-180;
+        }
+      }
+
+      .menu-arrow {
+        @apply ml-1 text-xs transition-transform duration-200;
+      }
+
+      .sub-menu-container {
+        @apply absolute bottom-[110%] max-w-[98%] min-w-[80%] bg-white;
+        @apply border border-gray-200 rounded-lg shadow-lg z-10 overflow-hidden;
+        box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+
+        .sub-menu-item {
+          @apply px-3 py-3 text-center cursor-pointer transition-colors duration-200;
+          @apply border-b border-gray-100;
+
+          &:hover {
+            @apply text-gray-800;
+          }
+
+          &:last-child {
+            @apply border-b-0;
+          }
+        }
+      }
+    }
+  }
 }
 
-.action-menu-container {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  position: relative;
-}
-
-.menu-item {
-  flex: 1;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border: 1px solid #e5e7eb;
-  @apply flex items-center justify-center relative;
-  padding: 12px 0;
-  background-color: white;
-  position: relative;
-}
-
-.menu-item:hover {
-  color: rgba(0, 0, 0, 0.8);
-}
-
-.menu-item:not(:last-child) {
-  border-right: none;
-}
-
-.menu-item.has-child.active {
-  color: rgba(0, 0, 0, 0.8);
-}
-
-.menu-arrow {
-  margin-left: 4px;
-  font-size: 12px;
-  transition: transform 0.2s;
-}
-
-.menu-item.has-child.active .menu-arrow {
-  transform: rotate(180deg);
-}
-
-.sub-menu-container {
-  position: absolute;
-  bottom: 110%;
-  max-width: 98%;
-  min-width: 80%;
-  background-color: white;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
-  z-index: 10;
-  overflow: hidden;
-}
-
-.sub-menu-item {
-  padding: 12px;
-  text-align: center;
-  cursor: pointer;
-  transition: background-color 0.2s;
-  border-bottom: 1px solid #f3f4f6;
-}
-
-.sub-menu-item:hover {
-  color: rgba(0, 0, 0, 0.8);
-}
-
-.sub-menu-item:last-child {
-  border-bottom: none;
-}
-
-/* 动画效果 */
 .slide-up-enter-active,
 .slide-up-leave-active {
-  transition: all 0.3s ease;
+  @apply transition-all duration-300 ease-in-out;
 }
 
 .slide-up-enter-from,
 .slide-up-leave-to {
-  opacity: 0;
-  transform: translateY(10px);
+  @apply opacity-0 translate-y-2.5;
 }
 </style>

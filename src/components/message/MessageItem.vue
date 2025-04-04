@@ -1,11 +1,11 @@
 <template>
-    <div class="flex gap-2 max-w-[90%]" :class="{
-        'flex-row-reverse self-end': role === 'user',
-        'self-start': role === 'me'
+    <div class="message-container" :class="{
+        'user-message': role === 'user',
+        'my-message': role === 'me'
     }">
-    
-        <div class="w-[40px] h-[40px] rounded-[4px] overflow-hidden flex-shrink-0">
-            <img class="object-cover w-full h-full" :src="role === 'user' ? userAvatar : myAvatar" :alt="role" />
+
+        <div class="avatar-container">
+            <img class="avatar-image" :src="role === 'user' ? userAvatar : myAvatar" :alt="role" />
         </div>
 
         <slot></slot>
@@ -26,3 +26,25 @@ defineProps({
     }
 })
 </script>
+
+<style lang="postcss" scoped>
+.message-container {
+    @apply flex gap-2 max-w-[90%];
+
+    &.user-message {
+        @apply flex-row-reverse self-end;
+    }
+
+    &.my-message {
+        @apply self-start;
+    }
+
+    .avatar-container {
+        @apply w-[40px] h-[40px] rounded-[4px] overflow-hidden flex-shrink-0;
+
+        .avatar-image {
+            @apply object-cover w-full h-full;
+        }
+    }
+}
+</style>

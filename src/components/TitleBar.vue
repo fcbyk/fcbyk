@@ -1,12 +1,12 @@
 <template>
   <div class="title-bar">
-    <div class="dots-container">
-      <div class="dot bg-[#ff5f57]"></div>
-      <div class="dot bg-[#ffbd2e]"></div>
-      <div class="dot bg-[#28c840]"></div>
+    <div class="window-controls">
+      <div class="control-dot close"></div>
+      <div class="control-dot minimize"></div>
+      <div class="control-dot maximize"></div>
     </div>
 
-    <div class="phone-title">
+    <div class="mobile-title">
       {{ displayText }}
     </div>
   </div>
@@ -24,31 +24,34 @@ useHead({ title: displayText })
 
 <style lang="postcss" scoped>
 .title-bar {
-  @apply relative pointer-events-auto whitespace-nowrap overflow-hidden cursor-move box-border text-center rounded-t-2xl flex-shrink-0 text-[#333] text-[14px] leading-[30px] h-full border-b border-[#f0f0f0] bg-white/90;
+  @apply relative flex items-center h-full px-4;
+  @apply cursor-move select-none;
+  
+  .window-controls {
+    @apply absolute left-[15px] top-1/2 -translate-y-1/2 flex gap-[5px];
 
-  .dots-container {
-    @apply absolute left-[15px] top-1/2 transform -translate-y-1/2 flex gap-[5px];
-
-    .dot {
+    .control-dot {
       @apply w-[15px] h-[15px] rounded-full;
+      
+      &.close { @apply bg-[#ff5f57]; }
+      &.minimize { @apply bg-[#ffbd2e]; }
+      &.maximize { @apply bg-[#28c840]; }
     }
   }
 
-  .phone-title {
-    @apply hidden;
+  .mobile-title {
+    @apply hidden text-[#333] text-[15px] font-medium;
   }
 }
 
 @media (max-width: 600px) {
   .title-bar {
-    height: 40px;
-    border-bottom-color: #f5f5f5;
-
-    .dots-container {
+    @apply justify-center;
+    .window-controls {
       @apply hidden;
     }
 
-    .phone-title {
+    .mobile-title {
       @apply flex items-center justify-center w-full h-full;
     }
   }
