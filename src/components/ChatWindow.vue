@@ -18,38 +18,36 @@
 
 <style lang="postcss" scoped>
 .chat-window {
-  @apply absolute;
-  @apply rounded-2xl;
-  @apply bg-white;
-  @apply flex flex-col;
+  @apply absolute rounded-2xl bg-white flex flex-col overflow-hidden;
+  width: 50%;
+  height: 80%;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.4);
   transition: all 0.3s ease;
-  overflow: hidden;
-  height: 80%;
-  width: 50%;
 
   .title-bar {
-    @apply pointer-events-auto whitespace-nowrap;
-    @apply overflow-hidden cursor-move box-border;
-    @apply text-[#333] text-center text-[14px] leading-[30px];
-    @apply h-[30px] rounded-t-2xl ;
+    height: 30px;
     border-bottom: 1px solid #f0f0f0;
-    background: rgb(250, 250, 250);
-    flex-shrink: 0;
   }
 
   .main {
+    @apply flex-1 overflow-hidden;
     background-color: rgba(250, 250, 250, 0.9);
-    flex: 1 1 auto;
-    overflow: hidden
   }
 
-
   .bottom-bar {
-    @apply w-full h-12;
+    @apply h-12 flex-shrink-0;
     border-top: 1px solid #f0f0f0;
-    background-color: rgb(250, 250, 250);
-    flex-shrink: 0;
+    background-color: rgba(250, 250, 250, 0.9);
+  }
+}
+
+@media (max-width: 600px) {
+  .chat-window {
+    @apply rounded-none w-full h-full;
+
+    .title-bar {
+      height: 40px;
+    }
   }
 }
 </style>

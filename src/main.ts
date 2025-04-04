@@ -1,5 +1,4 @@
-import './style/mian.scss'
-import './style/tailwind.pcss'
+import './style/mian.css'
 import configs from './configs'
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'

@@ -1,8 +1,15 @@
 <template>
-  <button class="btn-1"></button>
-  <button class="btn-2"></button>
-  <button class="btn-3"></button>
-  <div class="title">{{ displayText }}</div>
+  <div class="title-bar">
+    <div class="dots-container">
+      <div class="dot bg-[#ff5f57]"></div>
+      <div class="dot bg-[#ffbd2e]"></div>
+      <div class="dot bg-[#28c840]"></div>
+    </div>
+
+    <div class="phone-title">
+      {{ displayText }}
+    </div>
+  </div>
 </template>
 
 <script lang="ts" setup>
@@ -15,35 +22,35 @@ const displayText = computed(() => msgStore.isTyping ? '正在输入...' : '非�
 useHead({ title: displayText })
 </script>
 
-<style lang="scss" scoped>
-@mixin btn($left, $color) {
-  position: absolute;
-  top: 7.5px;
-  left: $left;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background-color: $color;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+<style lang="postcss" scoped>
+.title-bar {
+  @apply relative pointer-events-auto whitespace-nowrap overflow-hidden cursor-move box-border text-center rounded-t-2xl flex-shrink-0 text-[#333] text-[14px] leading-[30px] h-full border-b border-[#f0f0f0] bg-white/90;
+
+  .dots-container {
+    @apply absolute left-[15px] top-1/2 transform -translate-y-1/2 flex gap-[5px];
+
+    .dot {
+      @apply w-[15px] h-[15px] rounded-full;
+    }
+  }
+
+  .phone-title {
+    @apply hidden;
+  }
 }
 
-.btn-1 {
-  @include btn(15px, #ff5f57);
-}
+@media (max-width: 600px) {
+  .title-bar {
+    height: 40px;
+    border-bottom-color: #f5f5f5;
 
-.btn-2 {
-  @include btn(35px, #ffbd2e);
-}
+    .dots-container {
+      @apply hidden;
+    }
 
-.btn-3 {
-  @include btn(55px, #28c840);
-}
-
-.title {
-  display: none;
+    .phone-title {
+      @apply flex items-center justify-center w-full h-full;
+    }
+  }
 }
 </style>

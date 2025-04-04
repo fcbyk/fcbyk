@@ -30,9 +30,6 @@ importers:
       postcss:
         specifier: ^8.5.3
         version: 8.5.3
-      sass:
-        specifier: ^1.83.0
-        version: 1.83.0
       tailwindcss:
         specifier: 3.4.17
         version: 3.4.17
@@ -2255,6 +2252,7 @@ snapshots:
   chokidar@4.0.3:
     dependencies:
       readdirp: 4.0.2
+    optional: true
 
   color-convert@2.0.1:
     dependencies:
@@ -2439,7 +2437,8 @@ snapshots:
 
   human-signals@8.0.0: {}
 
-  immutable@5.0.3: {}
+  immutable@5.0.3:
+    optional: true
 
   is-binary-path@2.1.0:
     dependencies:
@@ -2662,7 +2661,8 @@ snapshots:
     dependencies:
       picomatch: 2.3.1
 
-  readdirp@4.0.2: {}
+  readdirp@4.0.2:
+    optional: true
 
   resolve@1.22.10:
     dependencies:
@@ -2712,6 +2712,7 @@ snapshots:
       source-map-js: 1.2.1
     optionalDependencies:
       '@parcel/watcher': 2.5.0
+    optional: true
 
   semver@6.3.1: {}
 

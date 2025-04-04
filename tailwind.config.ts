@@ -1,11 +1,15 @@
 import type { Config } from 'tailwindcss';
 
-const config: Config =  {
+const config: Config = {
   content: [
     "./index.html",
-    "./src/**/*.{vue,js,ts,jsx,tsx,scss}",
+    "./src/**/*.{vue,js,ts,jsx,tsx}",
   ],
   theme: {
+    screens: {
+      'phone': { max: '600px' }
+    },
+
     extend: {
       animation: {
         'message-pulse': 'message-pulse 1.5s ease-in-out infinite',

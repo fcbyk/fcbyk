@@ -1,19 +1,12 @@
 <template>
   <div class="flex flex-col h-full gap-4 p-4 overflow-y-auto msg-list no-scrollbar" ref="container">
     <template v-for="(message, index) in messageStore.messageList" :key="message.time">
-      <div 
-        class="text-[#999] text-center my-2 text-xs" 
-        v-if="shouldShowTime(message, index)"
-      >
+      <div class="text-[#999] text-center my-2 text-xs" v-if="shouldShowTime(message, index)">
         {{ formatTime(message.time) }}
       </div>
 
       <MessageItem :role="message.role">
-        <TextMessage 
-          :role="message.role" 
-          :content="message.content" 
-          :status="message.status" 
-        />
+        <TextMessage :role="message.role" :content="message.content" :status="message.status" />
       </MessageItem>
     </template>
   </div>
@@ -50,3 +43,11 @@ watch(
   { deep: true }
 )
 </script>
+
+<style lang="postcss" scoped>
+@media (max-width: 600px) {
+  .msg-list {
+    padding: 5px 8px 10px 8px;
+  }
+}
+</style>
