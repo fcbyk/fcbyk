@@ -19,7 +19,9 @@ import { useHead } from '@vueuse/head'
 
 const msgStore = useMessageStore()
 const displayText = computed(() => msgStore.isTyping ? '正在输入...' : '非常不愉快')
-useHead({ title: displayText })
+const isMobile = computed(() => window.innerWidth <= 600)
+const pageTitle = computed(() => isMobile.value ? '非常不愉快' : displayText.value)
+useHead({ title: pageTitle })
 </script>
 
 <style lang="postcss" scoped>

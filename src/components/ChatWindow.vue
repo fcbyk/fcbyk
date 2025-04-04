@@ -19,14 +19,15 @@
 <style lang="postcss" scoped>
 .chat-window {
   @apply absolute flex flex-col overflow-hidden;
-  @apply rounded-2xl bg-[#fafafa];
+  @apply rounded-2xl;
+  background-color: rgb(250 250 250 / var(--tw-bg-opacity, 1));
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.4);
   width: 50%;
   height: 80%;
 
   .title-bar {
     @apply flex-shrink-0 h-[30px];
-    border-bottom: 1px solid #eeeeee;
+    border-bottom: 1px solid #aeaeae32;
   }
 
   .main {
@@ -40,7 +41,7 @@
 
 @media (max-width: 600px) {
   .chat-window {
-    @apply rounded-none w-full h-full;
+    @apply rounded-none w-full h-full bg-[#ededed];
     
     .title-bar {
       @apply h-[35px];
