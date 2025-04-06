@@ -81,15 +81,18 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class=" bg-[#F7F7F7] p-2 pl-0">
-        <div class="flex items-end transition-all duration-200">
+    <div class=" bg-[#F7F7F7] p-2 pl-0"> 
+        <!-- 输入框容器 --> 
+        <div
+            class="flex items-end transition-all duration-200">
+
             <textarea ref="textareaRef" v-model="inputValue"
                 class=" flex-1 px-2 py-[6px] pr-14 rounded-[5px] resize-none bg-[#FFFFFF] focus:outline-none text-gray-800 placeholder-gray-400 overflow-y-auto no-scrollbar"
                 :placeholder="placeholder" :disabled="disabled || loading" rows="1" @input="handleInput"
                 @keydown="handleKeyDown" :style="{
                     maxHeight: `${baseLineHeight * maxRows}px`
                 }" />
-
+                
 
             <button :disabled="!inputValue.trim() || loading" @click="handleSubmit"
                 class=" text-white w-7 h-7 mx-2 mb-1 flex items-center justify-center rounded-full transition-colors"
