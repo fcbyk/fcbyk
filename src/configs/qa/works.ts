@@ -1,10 +1,10 @@
-import { createTextMsg as t, defineQA } from "@/utils"
+import { createTextMsg as t, createHTMLMsg as html, defineQA } from "@/utils"
 
 export const works = defineQA({
     question: t("你写过哪些项目"),
     answer: [
         t("可以在GitHub访问我写过的项目噢", 1500),
-        t(`<a href="https://github.com/fcbyk" 
+        html(`<a href="https://github.com/fcbyk" 
             class="text-[#576b95]
              hover:text-[#475f8c]
              hover:underline 

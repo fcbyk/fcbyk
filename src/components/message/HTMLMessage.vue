@@ -11,12 +11,15 @@
             <div class="w-2 h-2 bg-gray-400 rounded-full animate-message-pulse animation-delay-400"></div>
         </div>
 
-        <div class="leading-normal break-words" v-else v-text="content"></div>
+        <div class="leading-normal break-words" v-else v-html="sanitizedContent"></div>
     </div>
 </template>
 
 <script setup>
-defineProps({
+import DOMPurify from 'dompurify'
+import { computed } from 'vue'
+
+const props = defineProps({
     role: {
         type: String,
         required: true,
@@ -33,6 +36,8 @@ defineProps({
         default: ''
     }
 })
+
+const sanitizedContent = computed(() => DOMPurify.sanitize(props.content))
 </script>
 
 <style scoped>
