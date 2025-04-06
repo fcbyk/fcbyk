@@ -35,7 +35,7 @@
   }
 
   .bottom-bar {
-    @apply flex-shrink-0 h-[45px];
+    @apply flex-shrink-0;
   }
 }
 

@@ -1,7 +1,7 @@
 <script setup>
 import ChatWindow from './components/ChatWindow.vue';
 import TitleBar from './components/TitleBar.vue';
-import ActionMenu from '@/components/ActionMenu.vue'
+import BottomBar from './components/bottom/BottomBar.vue';
 import MessageList from './components/message/MessageList.vue';
 import WaveBackground from '@/components/bg/WaveBackground.vue';
 </script>
@@ -24,7 +24,7 @@ import WaveBackground from '@/components/bg/WaveBackground.vue';
       </template>
 
       <template #bottom-bar>
-        <ActionMenu/>
+        <BottomBar />
       </template>
     </chat-window>
 
