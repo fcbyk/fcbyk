@@ -6,7 +6,8 @@
       </div>
 
       <MessageItem :role="message.role">
-        <TextMessage :role="message.role" :content="message.content" :status="message.status" />
+        <component :is="getMessageComponent(message.type)" :role="message.role" :content="message.content"
+          :status="message.status" />
       </MessageItem>
     </template>
   </div>
@@ -19,9 +20,23 @@ import { formatTime } from '@/utils'
 import chatConfig from '@/configs'
 import MessageItem from './MessageItem.vue'
 import TextMessage from './TextMessage.vue'
+import ImageMessage from './ImageMessage.vue'
 
 const messageStore = useMessageStore()
 const container = ref(null)
+
+// 消息类型与组件的映射关系
+const messageComponents = {
+  text: TextMessage,
+  image: ImageMessage,
+  // audio: AudioMessage,
+  // video: VideoMessage
+}
+
+// 根据消息类型获取对应的组件
+const getMessageComponent = (type) => {
+  return messageComponents[type] || TextMessage // 默认返回文本消息组件
+}
 
 // 如果与前一条消息时间间隔超过阈值，则显示时间
 const shouldShowTime = (message, index) => {

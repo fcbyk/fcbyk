@@ -55,10 +55,10 @@ useClickOutside(() => menuState.close())
 
 <style lang="postcss" scoped>
 .action-menu-wrapper {
-  @apply relative w-full h-[45px] select-none;
+  @apply relative w-full select-none;
 
   .action-menu-container {
-    @apply flex w-full h-full text-center relative;
+    @apply flex w-full h-full text-center relative min-h-[50px];
 
     .menu-item {
       @apply flex-1 cursor-pointer transition-all duration-300 flex items-center justify-center relative;

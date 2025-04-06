@@ -39,9 +39,9 @@ export const useMessageStore = defineStore('message', () => {
 
   const questionAnswer = async (qa: QA) => {
     if (isTyping.value) return
-    await userSend(qa.question.content)
+    await userSend(qa.question.content, qa.question.type)
     for (const element of qa.answer)
-      await meSend(element.content, element.loadingTime)
+      await meSend(element.content, element.loadingTime, element.type)
   }
 
   return {

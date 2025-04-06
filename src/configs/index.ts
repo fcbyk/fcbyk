@@ -9,8 +9,8 @@ export default defineConfig({
     },
 
     actionMenu: [
-        m("域名由来", qa.domain),
         m("近期规划"),
+        m("域名由来", qa.domain),
         {
             label: "关于作者",
             child: [

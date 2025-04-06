@@ -67,7 +67,7 @@ const handleSubmit = async (msg: string) => {
 .slide-root-enter-active,
 .slide-root-leave-active {
   /* transition: all 0.3s ease; */
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .slide-root-enter-from,
@@ -84,7 +84,7 @@ const handleSubmit = async (msg: string) => {
 
 @media (max-width: 600px) {
   .chat-container {
-    @apply pl-[5px]
+    @apply px-[10px]
   }
 }
 </style>
