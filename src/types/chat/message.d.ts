@@ -1,5 +1,5 @@
 // 基础消息配置
-export type MessageType = 'text' | 'image' | 'audio' | 'video' | 'html';
+export type MessageType = 'text' | 'image' | 'audio' | 'video' | 'html' | 'music';
 export type MessageRole = 'me' | 'user';
 export type MessageStatus = 'loading' | 'completed' | 'error';
 

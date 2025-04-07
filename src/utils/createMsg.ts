@@ -20,3 +20,4 @@ export const createImageMsg = createMessageCreator("image");
 export const createAudioMsg = createMessageCreator("audio");
 export const createVideoMsg = createMessageCreator("video");
 export const createHTMLMsg = createMessageCreator("html");
+export const createMusicMsg = createMessageCreator("music");
