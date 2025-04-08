@@ -3,6 +3,8 @@ import { ref } from 'vue'
 import { useMessageStore } from '@/stores'
 import ActionMenu from './ActionMenu.vue'
 import ChatInput from './ChatInput.vue'
+import { getRandomElement } from '@/utils'
+import configs from '@/configs'
 
 const currentMode = ref<'text' | 'menu'>('menu')
 const message = ref('')
@@ -17,23 +19,25 @@ const toggleMode = async () => {
 }
 
 const handleSubmit = async (msg: string) => {
-  await messageStore.userSend(msg)
-  message.value = ''
-  await messageStore.meSend(`⚠️ 404_Response_From_Server`,1000)
-  await messageStore.meSend(`您发送的 ${msg.length}bytes 数据包已丢失`, 1000)
+  await messageStore.userSend(msg);
+  message.value = '';
+
+  if (msg.includes('网易云')) {
+    await messageStore.meSend(getRandomElement(configs.musicList), 4000, 'music');
+    return;
+  }
+  
+  await messageStore.meSend(`⚠️ 404_Response_From_Server`, 1000);
+  await messageStore.meSend(`您发送的 ${msg.length}bytes 数据包已丢失`, 1000);
 }
 </script>
 
 <template>
   <Transition name="slide-root" mode="out-in">
-    <div 
-      class="chat-container first-letter:border-t border-gray-200 flex" 
-      :class="{
-        'bg-[#F7F7F7]': currentMode === 'text',
-        'bg-white': currentMode === 'menu',
-      }"
-      :key="currentMode"
-    >
+    <div class="chat-container first-letter:border-t border-gray-200 flex" :class="{
+      'bg-[#F7F7F7]': currentMode === 'text',
+      'bg-white': currentMode === 'menu',
+    }" :key="currentMode">
       <div class="flex items-end p-2 " :class="{
         'pb-3': currentMode === 'text',
         'pb-2': currentMode === 'menu',
@@ -51,7 +55,7 @@ const handleSubmit = async (msg: string) => {
       </div>
 
       <div class="flex-1">
-        <ActionMenu v-if="currentMode === 'menu'"/>
+        <ActionMenu v-if="currentMode === 'menu'" />
         <ChatInput v-else v-model="message" @submit="handleSubmit" />
       </div>
     </div>
