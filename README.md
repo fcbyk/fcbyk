@@ -1,0 +1,1 @@
+https://cdn.jsdelivr.net/gh/fcbyk/fcbyk@site-config/index.js

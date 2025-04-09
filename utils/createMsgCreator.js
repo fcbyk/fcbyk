@@ -1,0 +1,1 @@
+export default (a) => (b, c) => ((type, content, loadingTime = 0) => ({ type, content, loadingTime }))(a, b, c)
