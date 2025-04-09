@@ -3,8 +3,6 @@ import { ref } from 'vue'
 import { useMessageStore } from '@/stores'
 import ActionMenu from './ActionMenu.vue'
 import ChatInput from './ChatInput.vue'
-import { getRandomElement } from '@/utils'
-import configs from '@/configs'
 
 const currentMode = ref<'text' | 'menu'>('menu')
 const message = ref('')
@@ -22,11 +20,6 @@ const handleSubmit = async (msg: string) => {
   await messageStore.userSend(msg);
   message.value = '';
 
-  if (msg.includes('网易云')) {
-    await messageStore.meSend(getRandomElement(configs.musicList), 4000, 'music');
-    return;
-  }
-  
   await messageStore.meSend(`⚠️ 404_Response_From_Server`, 1000);
   await messageStore.meSend(`您发送的 ${msg.length}bytes 数据包已丢失`, 1000);
 }

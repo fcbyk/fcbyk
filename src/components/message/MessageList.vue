@@ -22,7 +22,6 @@ import MessageItem from './MessageItem.vue'
 import TextMessage from './TextMessage.vue'
 import ImageMessage from './ImageMessage.vue'
 import HTMLMessage from './HTMLMessage.vue'
-import MusicMessage from './MusicMessage.vue'
 
 const messageStore = useMessageStore()
 const container = ref(null)
@@ -32,7 +31,6 @@ const messageComponents = {
   text: TextMessage,
   image: ImageMessage,
   html: HTMLMessage,
-  music: MusicMessage,
 }
 
 // 根据消息类型获取对应的组件

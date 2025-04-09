@@ -1,6 +1,5 @@
 import * as qa from "./qa";
 import { createMenuItem as m, defineConfig } from "../utils"
-import musicList from './json/musicList.json'
 
 export default defineConfig({
 
@@ -26,7 +25,5 @@ export default defineConfig({
         'font-size:16px',
         'color:#666',
         'color:#1890ff; text-decoration:underline'
-    ],
-
-    musicList
+    ]
 })

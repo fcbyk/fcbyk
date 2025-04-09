@@ -4,7 +4,6 @@
   "scripts": {
     "dev": "vite",
     "generate:exports": "node scripts/generate-exports.cjs",
-    "get-playlist": "node scripts/get-playlist.cjs",
     "dev-host": "vite --host",
     "build": "vite build",
     "preview": "vite preview"
