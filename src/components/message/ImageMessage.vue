@@ -10,10 +10,12 @@
         alt="图片消息" 
         class="image-content" 
         @click="openPreview" 
-        v-if="status !== 'loading'"
+        v-show="canShowImage"
+        @load="handleImageLoad"
+        @error="handleImageError"
       />
       <!-- 加载骨架屏 -->
-      <div v-else class="image-skeleton">
+      <div v-show="!canShowImage" class="image-skeleton">
         <div class="skeleton-animation"></div>
       </div>
     </div>
@@ -33,7 +35,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed, onMounted, watch } from 'vue'
 
 const props = defineProps({
   role: {
@@ -51,6 +53,50 @@ const props = defineProps({
 })
 
 const showPreview = ref(false)
+const imageLoaded = ref(false)
+const loadStartTime = ref(0)
+
+const canShowImage = computed(() => {
+  if (props.status === 'loading') return false
+  if (!imageLoaded.value) return false
+  
+  // 确保至少显示500ms的加载动画
+  const timeElapsed = Date.now() - loadStartTime.value
+  return timeElapsed >= 500
+})
+
+const handleImageLoad = () => {
+  console.log('图片加载成功')
+  setTimeout(() => {
+    imageLoaded.value = true
+  }, Math.max(0, 500 - (Date.now() - loadStartTime.value)))
+}
+
+const handleImageError = (error) => {
+  console.error('图片加载失败:', error)
+  imageLoaded.value = false
+}
+
+// 监听content的变化，重置加载状态
+watch(() => props.content, () => {
+  imageLoaded.value = false
+  loadStartTime.value = Date.now()
+})
+
+// 监听status的变化
+watch(() => props.status, (newStatus) => {
+  if (newStatus === 'loading') {
+    loadStartTime.value = Date.now()
+    imageLoaded.value = false
+  }
+})
+
+onMounted(() => {
+  loadStartTime.value = Date.now()
+  if (!props.content) {
+    imageLoaded.value = true
+  }
+})
 
 const openPreview = () => {
   showPreview.value = true
