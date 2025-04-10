@@ -1,4 +1,4 @@
-import { defineConfig } from "@/utils"
+import { defineConfig } from "@/config"
 import { defineStore } from "pinia"
 import { ref } from 'vue'
 import type { ChatConfig, ChatConfigOptions } from "@/types"

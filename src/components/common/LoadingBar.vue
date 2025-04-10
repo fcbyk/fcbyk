@@ -1,13 +1,11 @@
-<template>
-  <!-- 这个组件不需要模板，因为 NProgress 会自动添加到 body 中 -->
-</template>
+<template></template>
 
 <script setup lang="ts">
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 
 // 配置 NProgress
-NProgress.configure({ 
+NProgress.configure({
   showSpinner: false,  // 不显示加载圆圈
   easing: 'ease',      // 动画效果
   speed: 400,          // 动画速度
@@ -27,7 +25,8 @@ defineExpose({
 <style>
 /* 自定义进度条样式 */
 #nprogress .bar {
-  background: #4f46e5 !important; /* 使用主题色 */
+  background: #4f46e5 !important;
+  /* 使用主题色 */
   height: 3px !important;
 }
 
@@ -35,4 +34,4 @@ defineExpose({
 #nprogress .peg {
   box-shadow: none !important;
 }
-</style> 
+</style>

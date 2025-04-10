@@ -1,6 +1,6 @@
 import { sleep } from "@/utils";
 import { Ref } from "vue";
-import { MessageRole, MessageType, Message } from "@/types";
+import { MessageConfig, MessageRole, MessageType, Message } from "@/types";
 
 interface MessageSender {
     send(
@@ -46,3 +46,25 @@ export function createMessageSender(messageList: Ref<Message[]>): MessageSender 
         sendAsMe: (content, loadingTime = 100, type = 'text') => send('me', content, loadingTime, type)
     };
 };
+
+// 工厂函数
+const createMediaMessage = (
+    type: MessageType,
+    content: string,
+    loadingTime: number = 0
+): MessageConfig => {
+    if (!content) throw new Error("消息不能为空");
+    return { type, content, loadingTime };
+};
+
+// 创建指定类型的消息生成函数
+const createMessageCreator = (messageType: MessageType) =>
+    (content: string, loadingTime?: number) => createMediaMessage(messageType, content, loadingTime);
+
+// 具体函数导出
+export const createTextMsg = createMessageCreator("text");
+export const createImageMsg = createMessageCreator("image");
+export const createAudioMsg = createMessageCreator("audio");
+export const createVideoMsg = createMessageCreator("video");
+export const createHTMLMsg = createMessageCreator("html");
+export const createMusicMsg = createMessageCreator("music");

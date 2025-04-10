@@ -8,10 +8,15 @@ import LoadingBar from './components/common/LoadingBar.vue'
 import { ref, onMounted } from 'vue'
 import { sleep } from './utils';
 import { useConfigsStore } from './stores';
+import { useHead } from '@vueuse/head'
 
 const loadingBar = ref()
 const isAppReady = ref(false)
 const configsStore = useConfigsStore()
+const title = ref(configsStore.configs.name)
+
+// 设置动态标题
+useHead({ title })
 
 onMounted(async () => {
   try {

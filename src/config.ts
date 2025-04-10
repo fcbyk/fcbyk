@@ -7,7 +7,7 @@ export const defineConfig = (options: ChatConfigOptions): ChatConfig => ({
 
     timeThreshold: 1000 * 60 * 5,
 
-    cliPrint: ["非常不愉快.com"],
+    cliPrint: ["hello world"],
 
     avatar: {
         me: 'https://avatars.githubusercontent.com/u/101487905',
