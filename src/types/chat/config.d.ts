@@ -14,6 +14,11 @@ export interface ChatConfig {
   hello: MessageConfig[];
 
   /**
+   * 自动回复设置
+   */
+  autoReply: MessageConfig[][];
+
+  /**
    * 头像设置
    * me: 你的头像
    * user: 提问者的头像

@@ -3,11 +3,16 @@ import { ref } from 'vue'
 import { useMessageStore } from '@/stores'
 import ActionMenu from './ActionMenu.vue'
 import ChatInput from './ChatInput.vue'
+import { getRandomElement } from '@/utils'
+import { useConfigsStore } from '@/stores'
+import { createMessageCreator } from '@/utils'
 
+const text = createMessageCreator("text");
 const currentMode = ref<'text' | 'menu'>('menu')
 const message = ref('')
 const messageStore = useMessageStore()
 const isAnimating = ref(false)
+const configsStore = useConfigsStore()
 
 const toggleMode = async () => {
   isAnimating.value = true
@@ -19,9 +24,13 @@ const toggleMode = async () => {
 const handleSubmit = async (msg: string) => {
   await messageStore.userSend(msg);
   message.value = '';
-
-  await messageStore.meSend(`⚠️ 404_Response_From_Server`, 1000);
-  await messageStore.meSend(`您发送的 ${msg.length}bytes 数据包已丢失`, 1000);
+  let autoReply = configsStore.configs.autoReply
+  autoReply.push([text(`您发送的 ${msg.length}bytes 数据包已丢失`, 1000)])
+  const randomItem = getRandomElement(autoReply)
+  for (const item of randomItem) {
+    await messageStore.meSend(item.content, item.loadingTime, item.type)
+  }
+  autoReply.pop()
 }
 </script>
 

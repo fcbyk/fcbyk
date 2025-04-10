@@ -8,8 +8,13 @@ export const defineConfig = (options: ChatConfigOptions): ChatConfig => ({
 
     name: '非常不愉快',
 
-    hello:[
+    hello: [
         text("你好！我是不愉，你有什么要问我的吗？", 1000)
+    ],
+
+    autoReply: [
+        [text("⚠️ 404_Response_From_Server", 1000),],
+        [text("服务器繁忙，请稍后再试", 3000)]
     ],
 
     timeThreshold: 1000 * 60 * 5,
