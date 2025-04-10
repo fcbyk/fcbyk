@@ -3,8 +3,7 @@ import { MessageConfig } from './message';
 
 export interface ChatConfig {
   /**
-   * 昵称设置
-   * 默认值：非常不愉快
+   * 昵称设置(站点标题)
    */
   name: string;
 
@@ -19,6 +18,13 @@ export interface ChatConfig {
   autoReply: MessageConfig[][];
 
   /**
+   * 关键词回复
+   */
+  keywordReply: {
+    [key: string]: MessageConfig[];
+  };
+  
+  /**
    * 头像设置
    * me: 你的头像
    * user: 提问者的头像
@@ -30,7 +36,6 @@ export interface ChatConfig {
 
   /**
    * 时间间隔阈值（毫秒）
-   * 默认值：5分钟 (1000 * 60 * 5)
    */
   timeThreshold: number;
 

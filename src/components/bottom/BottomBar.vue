@@ -22,14 +22,24 @@ const toggleMode = async () => {
 }
 
 const handleSubmit = async (msg: string) => {
+  // 发送用户消息并清空输入
   await messageStore.userSend(msg);
   message.value = '';
-  let autoReply = configsStore.configs.autoReply
-  autoReply.push([text(`您发送的 ${msg.length}bytes 数据包已丢失`, 1000)])
-  const randomItem = getRandomElement(autoReply)
-  for (const item of randomItem) {
-    await messageStore.meSend(item.content, item.loadingTime, item.type)
+
+  // 检查关键词回复
+  const { keywordReply, autoReply } = configsStore.configs;
+  const matchedKeyword = Object.keys(keywordReply).find(key => msg.includes(key));  
+
+  if (matchedKeyword) {
+    // 处理关键词回复
+    for (const item of keywordReply[matchedKeyword]) 
+      await messageStore.meSend(item.content, item.loadingTime, item.type);
+    return;
   }
+
+  autoReply.push([text(`您发送的 ${msg.length}bytes 数据包已丢失`, 1000)])
+  for (const item of getRandomElement(autoReply)) 
+    await messageStore.meSend(item.content, item.loadingTime, item.type)
   autoReply.pop()
 }
 </script>

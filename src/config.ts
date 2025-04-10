@@ -17,6 +17,11 @@ export const defineConfig = (options: ChatConfigOptions): ChatConfig => ({
         [text("服务器繁忙，请稍后再试", 3000)]
     ],
 
+    keywordReply: {
+        "网易云": [text("音乐组件存在bug，等待修复中", 1000)],
+        "不愉快": [text("在", 1000)],
+    },
+
     timeThreshold: 1000 * 60 * 5,
 
     cliPrint: ["hello world"],
