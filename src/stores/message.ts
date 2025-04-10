@@ -17,12 +17,6 @@ export const useMessageStore = defineStore('message', () => {
   const stopTyping = () => { isTyping.value = false }
   const toggleTyping = () => { isTyping.value = !isTyping.value }
 
-  // 初始化问候
-  const init = async () => {
-    if (messageList.value.length === 0)
-      await meSend("你好！我是不愉，你有什么要问我的吗？", 1000)
-  }
-
   // 封装带状态控制的发送方法
   const userSend = async (content: string, type: MessageType = 'text') => {
     await messageSender.sendAsUser(content, type)
@@ -49,7 +43,6 @@ export const useMessageStore = defineStore('message', () => {
     isTyping,
     messageList,
 
-    init,
     questionAnswer,
 
     // 操作方法

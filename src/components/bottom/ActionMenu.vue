@@ -30,7 +30,7 @@ import type { ActionMenuItem, ActionMenuItemBase } from '@/types'
 const configsStore = useConfigsStore()
 const menu = configsStore.configs.actionMenu as ActionMenuItem[]
 
-const { isTyping, questionAnswer, init: msgListInit } = useMessageStore()
+const { isTyping, questionAnswer} = useMessageStore()
 
 const menuState = useMenuState()
 const { getChildItems, isExpandable } = useMenuNavigation()
@@ -50,7 +50,6 @@ const handleChildClick = (childItem: ActionMenuItemBase) => {
   questionAnswer(childItem.action)
 }
 
-onMounted(() => msgListInit())
 useClickOutside(() => menuState.close())
 </script>
 

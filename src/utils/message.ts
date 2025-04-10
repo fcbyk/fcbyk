@@ -58,13 +58,5 @@ const createMediaMessage = (
 };
 
 // 创建指定类型的消息生成函数
-const createMessageCreator = (messageType: MessageType) =>
+export const createMessageCreator = (messageType: MessageType) =>
     (content: string, loadingTime?: number) => createMediaMessage(messageType, content, loadingTime);
-
-// 具体函数导出
-export const createTextMsg = createMessageCreator("text");
-export const createImageMsg = createMessageCreator("image");
-export const createAudioMsg = createMessageCreator("audio");
-export const createVideoMsg = createMessageCreator("video");
-export const createHTMLMsg = createMessageCreator("html");
-export const createMusicMsg = createMessageCreator("music");

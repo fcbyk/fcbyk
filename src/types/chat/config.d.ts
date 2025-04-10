@@ -1,4 +1,5 @@
 import type { ActionMenu } from '../ui/action-menu';
+import { MessageConfig } from './message';
 
 export interface ChatConfig {
   /**
@@ -6,6 +7,11 @@ export interface ChatConfig {
    * 默认值：非常不愉快
    */
   name: string;
+
+  /**
+   * 问候语设置
+   */
+  hello: MessageConfig[];
 
   /**
    * 头像设置
