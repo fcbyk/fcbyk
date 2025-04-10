@@ -22,13 +22,14 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { useMessageStore } from '@/stores/message'
+import { useMessageStore, useConfigsStore } from '@/stores'
 import { useMenuNavigation, useMenuState, useClickOutside } from '@/utils'
 import { onMounted } from 'vue'
-import chatConfig from '@/configs'
 import type { ActionMenuItem, ActionMenuItemBase } from '@/types'
 
-const menu = chatConfig.actionMenu as ActionMenuItem[]
+const configsStore = useConfigsStore()
+const menu = configsStore.configs.actionMenu as ActionMenuItem[]
+
 const { isTyping, questionAnswer, init: msgListInit } = useMessageStore()
 
 const menuState = useMenuState()

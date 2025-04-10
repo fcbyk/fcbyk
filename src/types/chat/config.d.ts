@@ -1,12 +1,11 @@
 import type { ActionMenu } from '../ui/action-menu';
 
 export interface ChatConfig {
-
   /**
    * 昵称设置
    * 默认值：非常不愉快
    */
-  name?: string;
+  name: string;
 
   /**
    * 头像设置
@@ -22,7 +21,7 @@ export interface ChatConfig {
    * 时间间隔阈值（毫秒）
    * 默认值：5分钟 (1000 * 60 * 5)
    */
-  timeThreshold?: number;
+  timeThreshold: number;
 
   /**
    * 菜单设置
@@ -32,10 +31,12 @@ export interface ChatConfig {
   /**
    * 控制台打印
    */
-  cliPrint?: any[];
+  cliPrint: any[];
 
   /**
    * 允许任意额外的字符串属性
    */
   [key: string]: any;
 }
+
+export type ChatConfigOptions = Partial<ChatConfig>;

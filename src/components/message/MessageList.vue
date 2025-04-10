@@ -15,15 +15,15 @@
 
 <script setup>
 import { ref, watch, nextTick } from 'vue'
-import { useMessageStore } from '@/stores/message'
+import { useMessageStore, useConfigsStore } from '@/stores'
 import { formatTime } from '@/utils'
-import chatConfig from '@/configs'
 import MessageItem from './MessageItem.vue'
 import TextMessage from './TextMessage.vue'
 import ImageMessage from './ImageMessage.vue'
 import HTMLMessage from './HTMLMessage.vue'
 
 const messageStore = useMessageStore()
+const configsStore = useConfigsStore()
 const container = ref(null)
 
 // 消息类型与组件的映射关系
@@ -44,7 +44,7 @@ const shouldShowTime = (message, index) => {
   if (index === 0) return true
   const prevMessage = messageStore.messageList[index - 1]
   if (!prevMessage.time) return false
-  return message.time - prevMessage.time > chatConfig.timeThreshold
+  return message.time - prevMessage.time > configsStore.configs.timeThreshold
 }
 
 // 监听消息变化自动滚动

@@ -5,7 +5,6 @@
 <script setup lang="ts">
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
-import { onMounted } from 'vue'
 
 // 配置 NProgress
 NProgress.configure({ 

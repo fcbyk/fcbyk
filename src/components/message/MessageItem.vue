@@ -14,11 +14,12 @@
 </template>
 
 <script lang="ts" setup>
-import chatConfig from '@/configs'
+import { useConfigsStore } from '@/stores'
 
-const userAvatar = chatConfig.avatar.user
-const myAvatar = chatConfig.avatar.me
-
+const configsStore = useConfigsStore()
+const userAvatar = configsStore.configs.avatar.user
+const myAvatar = configsStore.configs.avatar.me
+    
 defineProps({
     role: {
         type: String,

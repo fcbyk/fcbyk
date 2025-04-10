@@ -6,31 +6,28 @@ import MessageList from './components/message/MessageList.vue';
 import WaveBackground from '@/components/bg/WaveBackground.vue';
 import LoadingBar from './components/common/LoadingBar.vue'
 import { ref, onMounted } from 'vue'
+import { sleep } from './utils';
+import { useConfigsStore } from './stores';
 
 const loadingBar = ref()
 const isAppReady = ref(false)
+const configsStore = useConfigsStore()
 
 onMounted(async () => {
   try {
-    // 开始显示进度条
     loadingBar.value?.startLoading()
-    
-    // 这里等待所有初始化数据加载完成
-    // 例如：await Promise.all([
-    //   store.dispatch('fetchInitialData'),
-    //   store.dispatch('fetchUserProfile'),
-    //   // ... 其他异步操作
-    // ])
-    
-    // 模拟等待数据加载
-    await new Promise(resolve => setTimeout(resolve, 300))
+
+    // @ts-ignore
+    const config = await import('https://cdn.jsdelivr.net/gh/fcbyk/fcbyk@site-config/index.js')
+    configsStore.setConfigs(config.default)
+
+    console.log(...(configsStore.configs.cliPrint ?? []));
   } finally {
     // 完成后结束进度条并显示内容
     loadingBar.value?.endLoading()
     // 添加小延迟确保过渡更平滑
-    setTimeout(() => {
-      isAppReady.value = true
-    }, 100)
+    await sleep(100)
+    isAppReady.value = true
   }
 })
 </script>
@@ -38,7 +35,7 @@ onMounted(async () => {
 <template>
   <div class="flex justify-center items-center h-[100dvh]">
     <loading-bar ref="loadingBar" />
-    
+
     <WaveBackground backgroundColor="#f5f9ff" waveColorStart="rgba(80, 180, 240, 0.6)"
       waveColorEnd="rgba(180, 220, 255, 0.2)" :waveHeight="30" :secondaryWaveHeight="20" :animationSpeed="0.04"
       :wavePosition="0.6" />
@@ -142,16 +139,20 @@ onMounted(async () => {
 .bounce-enter-active {
   animation: bounce-in 0.5s;
 }
+
 .bounce-leave-active {
   animation: bounce-in 0.5s reverse;
 }
+
 @keyframes bounce-in {
   0% {
     transform: scale(0);
   }
+
   50% {
     transform: scale(1.05);
   }
+
   100% {
     transform: scale(1);
   }

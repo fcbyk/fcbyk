@@ -16,11 +16,13 @@
 import { useMessageStore } from '@/stores';
 import { computed } from 'vue'
 import { useHead } from '@vueuse/head'
+import { useConfigsStore } from '@/stores'
 
+const configsStore = useConfigsStore()
 const msgStore = useMessageStore()
-const displayText = computed(() => msgStore.isTyping ? '正在输入...' : '非常不愉快')
+const displayText = computed(() => msgStore.isTyping ? '正在输入...' : configsStore.configs.name)
 const isMobile = computed(() => window.innerWidth <= 600)
-const pageTitle = computed(() => isMobile.value ? '非常不愉快' : displayText.value)
+const pageTitle = computed(() => isMobile.value ? configsStore.configs.name : displayText.value)
 useHead({ title: pageTitle })
 </script>
 
