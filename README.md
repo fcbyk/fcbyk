@@ -3,8 +3,8 @@
 
 | 描述 | 链接 |
 |------|------|
-| 清除cdn缓存 | [purge](https://purge.jsdelivr.net/gh/fcbyk/fcbyk@site-config/) |
-| cdn测试 | [jsdelivr](https://cdn.jsdelivr.net/gh/fcbyk/fcbyk@site-config/index.js) |
-| 在线vscode-只读 | [github1s](https://github1s.com/fcbyk/fcbyk/blob/site-config/index.js) |
-| 在线vscode-编辑 | [github.dev](https://github.dev/fcbyk/fcbyk/tree/site-config) |
+| 清除cdn缓存 | [purge](https://purge.jsdelivr.net/gh/fcbyk/fcbyk@configs/) |
+| cdn测试 | [jsdelivr](https://cdn.jsdelivr.net/gh/fcbyk/fcbyk@configs/index.js) |
+| 在线vscode-只读 | [github1s](https://github1s.com/fcbyk/fcbyk/blob/configs/index.js) |
+| 在线vscode-编辑 | [github.dev](https://github.dev/fcbyk/fcbyk/tree/configs) |
 | 配置对象完整类型 | [ChatConfigOptions](https://github.com/fcbyk/fcbyk/blob/main/src/types/chat/config.d.ts) |
