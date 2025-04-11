@@ -22,6 +22,13 @@ export const defineConfig = (options: ChatConfigOptions): ChatConfig => ({
         "不愉快": [text("在", 1000)],
     },
 
+    urlReply: {
+        "test": {
+            question: text("当前未初始化", 1000),
+            answer: [text("检查异步数据是否返回成功或是否配置", 1000)],
+        }
+    },
+
     timeThreshold: 1000 * 60 * 5,
 
     cliPrint: ["hello world"],

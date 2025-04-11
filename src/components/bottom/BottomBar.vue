@@ -32,14 +32,12 @@ const handleSubmit = async (msg: string) => {
 
   if (matchedKeyword) {
     // 处理关键词回复
-    for (const item of keywordReply[matchedKeyword]) 
-      await messageStore.meSend(item.content, item.loadingTime, item.type);
+    await messageStore.answer(keywordReply[matchedKeyword])
     return;
   }
 
   autoReply.push([text(`您发送的 ${msg.length}bytes 数据包已丢失`, 1000)])
-  for (const item of getRandomElement(autoReply)) 
-    await messageStore.meSend(item.content, item.loadingTime, item.type)
+  await messageStore.answer(getRandomElement(autoReply))
   autoReply.pop()
 }
 </script>

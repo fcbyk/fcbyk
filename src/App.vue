@@ -23,8 +23,8 @@ onMounted(async () => {
     loadingBar.value?.startLoading()
 
     // @ts-ignore
-    const config = await import('https://cdn.jsdelivr.net/gh/fcbyk/fcbyk@site-config/index.js')
-    configsStore.setConfigs(config.default)
+    const { default:config } = await import('https://cdn.jsdelivr.net/gh/fcbyk/fcbyk@site-config/index.js')
+    configsStore.setConfigs(config)
 
     console.log(...(configsStore.configs.cliPrint ?? []));
   } finally {
@@ -53,6 +53,7 @@ onMounted(async () => {
 
         <template #main>
           <MessageList />
+          <router-view></router-view>
         </template>
 
         <template #bottom-bar>

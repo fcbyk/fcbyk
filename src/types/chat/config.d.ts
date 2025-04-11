@@ -1,5 +1,4 @@
-import type { ActionMenu } from '../ui/action-menu';
-import { MessageConfig } from './message';
+import type { ActionMenu, QA, MessageConfig } from '@/types';
 
 export interface ChatConfig {
   /**
@@ -23,7 +22,14 @@ export interface ChatConfig {
   keywordReply: {
     [key: string]: MessageConfig[];
   };
-  
+
+  /**
+   * url回复
+   */
+  urlReply: {
+    [key: string]: QA
+  };
+
   /**
    * 头像设置
    * me: 你的头像

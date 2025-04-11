@@ -57,12 +57,6 @@ watch(
   }),
   { deep: true }
 )
-
-onMounted(async () => {
-  if (messageStore.messageList.length === 0)
-    for (const item of configsStore.configs.hello)
-      await messageStore.meSend(item.content, item.loadingTime, item.type)
-})
 </script>
 
 <style lang="postcss" scoped>

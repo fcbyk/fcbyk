@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 import { createMessageSender } from '@/utils'
-import type { Message, MessageType, QA } from '@/types'
+import type { Message, MessageType, QA, MessageConfig } from '@/types'
 
 export const useMessageStore = defineStore('message', () => {
 
@@ -38,13 +38,16 @@ export const useMessageStore = defineStore('message', () => {
       await meSend(element.content, element.loadingTime, element.type)
   }
 
+  const answer = async (answer: MessageConfig[]) => {
+    for (const item of answer)
+      await meSend(item.content, item.loadingTime, item.type)
+  }
+
   return {
     // 状态
     isTyping,
     messageList,
-
-    questionAnswer,
-
+    
     // 操作方法
     startTyping,
     stopTyping,
@@ -53,6 +56,8 @@ export const useMessageStore = defineStore('message', () => {
     // 发送方法
     userSend,
     meSend,
+    answer,
+    questionAnswer,
 
     // 原始发送器
     messageSender
