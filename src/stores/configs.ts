@@ -11,7 +11,6 @@ export const useConfigsStore = defineStore('configs', () => {
         configs.value = defineConfig({
             ...config
         })
-        isConfigLoaded.value = true
     }
 
     return {

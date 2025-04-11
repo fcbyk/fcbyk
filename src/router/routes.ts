@@ -4,12 +4,11 @@ import { useRoute, useRouter } from 'vue-router'
 import { useConfigsStore, useMessageStore } from '@/stores'
 import { sleep } from '@/utils'
 
-// 处理正常关键词的函数
-async function handleKeywordRoute(keyword: string, query: Record<string, any>): Promise<boolean> {
+// 处理关键词的函数
+async function handleKeywordRoute(keyword: string): Promise<boolean> {
   const configsStore = useConfigsStore()
   const config = configsStore.configs
   const messageStore = useMessageStore()
-
   if (Object.keys(config.urlReply).includes(keyword)) {
     messageStore.questionAnswer(config.urlReply[keyword])
     return true
@@ -29,6 +28,7 @@ async function defaultRoute() {
 // 等待配置加载完成
 async function waitForConfig(): Promise<void> {
   const configsStore = useConfigsStore()
+  const messageStore = useMessageStore()
   
   if (!configsStore.isConfigLoaded) {
     // 如果配置未加载，等待一段时间后重试
@@ -42,44 +42,25 @@ const routes: RouteRecordRaw[] = [
     path: '/',
     component: defineComponent({
       setup() {
-        onMounted(async () => {
-          await waitForConfig()
-          await defaultRoute()
-        })
-        return () => null
-      }
-    })
-  },
-  {
-    // 只匹配一级路径，不允许多级
-    path: '/:keyword([^/]+)',
-    component: defineComponent({
-      setup() {
         const route = useRoute()
-        const router = useRouter()
-
         onMounted(async () => {
           try {
-            // 确保配置已加载
             await waitForConfig()
-            const matched = await handleKeywordRoute(route.params.keyword as string, route.query)
-            await router.push('/')
-            if (!matched) {
-              await defaultRoute()
-            }
+            // 检查是否有查询参数
+            const keyword = route.query.qa as string
+            if (keyword) {
+              const matched = await handleKeywordRoute(keyword)
+              if (!matched) await defaultRoute()
+            } else await defaultRoute()
           } catch (error) {
             console.error('处理出错:', error)
-            await router.push('/')
+            await defaultRoute()
           }
         })
 
         return () => null
       }
     })
-  },
-  {
-    path: '/:pathMatch(.*)*',
-    redirect: '/'
   }
 ]
 

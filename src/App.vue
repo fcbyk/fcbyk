@@ -23,8 +23,9 @@ onMounted(async () => {
     loadingBar.value?.startLoading()
 
     // @ts-ignore
-    const { default:config } = await import('https://cdn.jsdelivr.net/gh/fcbyk/fcbyk@site-config/index.js')
+    const { default:config } = await import('https://cdn.jsdelivr.net/gh/fcbyk/fcbyk@configs/index.js')
     configsStore.setConfigs(config)
+    configsStore.isConfigLoaded = true
 
     console.log(...(configsStore.configs.cliPrint ?? []));
   } finally {
