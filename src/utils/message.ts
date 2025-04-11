@@ -1,4 +1,4 @@
-import { sleep } from "@/utils";
+import { sleep } from "./mini";
 import { Ref } from "vue";
 import { MessageConfig, MessageRole, MessageType, Message } from "@/types";
 

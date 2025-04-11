@@ -18,12 +18,14 @@
             ]
         },
         "types": [
-            "vite/client"
+            "vite/client",
+            "jest"
         ],
         "skipLibCheck": true,
         "typeRoots": [
             "./node_modules/@types",
-            "./src/types"
+            "./src/types",
+            "./cypress"
         ]
     },
     "include": [
@@ -32,7 +34,7 @@
         "src/**/*.tsx",
         "src/**/*.vue",
         "env.d.ts"
-, "src/stores/messageLts"    ],
+    ],
     "exclude": [
         "node_modules"
     ]
