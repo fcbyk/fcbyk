@@ -1,9 +1,5 @@
-import avatar from "./options/avatar.js"
-import cliPrint from "./options/cli-print.js"
-import actionMenu from "./options/action-menu.js"
+import * as configs from "./options/index.js"
 
 export default {
-    avatar,
-    actionMenu,
-    cliPrint,
+    ...configs
 }

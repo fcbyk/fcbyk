@@ -1,6 +1,4 @@
-import domain from "../qa/domain.js"
-import works from "../qa/works.js"
-import about from "../qa/about.js"
+import { domain,works,about } from "../qa/index.js"
 import createMsgCreator from "../utils/createMsgCreator.js"
 
 const t = createMsgCreator("text")
@@ -10,7 +8,7 @@ const m = (label, action = {
     answer: [t("服务器繁忙，请稍后再试", 3000)]
 }) => ({ label, action, })
 
-export default [
+export const actionMenu = [
     m("近期规划"),
     m("域名由来", domain),
     {

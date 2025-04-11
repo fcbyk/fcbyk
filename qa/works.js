@@ -3,7 +3,7 @@ import createMsgCreator from "../utils/createMsgCreator.js"
 const t = createMsgCreator("text")
 const h = createMsgCreator("html")
 
-export default {
+export const works = {
     question: t("你写过哪些项目"),
     answer: [
         t("可以在GitHub访问我写过的项目噢", 1500),

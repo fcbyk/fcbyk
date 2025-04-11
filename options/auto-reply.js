@@ -2,7 +2,7 @@ import createMsgCreator from "../utils/createMsgCreator.js"
 
 const text = createMsgCreator("text")
 
-export default [
+export const autoReply = [
     [text("⚠️ 404_Response_From_Server", 1000),],
     [text("服务器繁忙，请稍后再试", 3000)],
     [text("正在从火星数据中心同步...", 1500)],

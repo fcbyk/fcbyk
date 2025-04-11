@@ -3,7 +3,7 @@ import createMsgCreator from "../utils/createMsgCreator.js"
 const t = createMsgCreator("text")
 const i = createMsgCreator("image")
 
-export default {
+export const domain =  {
     question: t("fcbyk.com这个域名是怎么来的？"),
     answer: [
         t("fcbyk是非常不愉快的拼音首字母", 800),

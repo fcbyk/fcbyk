@@ -2,7 +2,7 @@ import createMsgCreator from "../utils/createMsgCreator.js"
 
 const t = createMsgCreator("text")
 
-export default {
+export const about = {
     question: t("可以介绍一下你自己吗"),
     answer: [
         t("还没想好怎么介绍自己", 1500),
