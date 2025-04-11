@@ -37,14 +37,14 @@ useHead({ title: pageTitle })
     .control-dot {
       @apply w-[15px] h-[15px] rounded-full;
       
-      &.close { @apply bg-[#ff5f57]; }
-      &.minimize { @apply bg-[#ffbd2e]; }
-      &.maximize { @apply bg-[#28c840]; }
+      &.close { @apply bg-[var(--close-btn)]; }
+      &.minimize { @apply bg-[var(--minimize-btn)]; }
+      &.maximize { @apply bg-[var(--maximize-btn)]; }
     }
   }
 
   .mobile-title {
-    @apply hidden text-[#333] text-[15px] font-medium;
+    @apply hidden text-[var(--text-primary)] text-[15px] font-medium;
   }
 }
 

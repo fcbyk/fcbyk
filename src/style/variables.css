@@ -1,0 +1,35 @@
+:root {
+    /* 主色调 */
+    --primary-color: #ededed;
+    
+    /* 消息气泡颜色 */
+    --user-message-bg: #95ec69;
+    --my-message-bg: #ffffff;
+    
+    /* 背景色 */
+    --background-color: #f5f9ff;
+    --wave-start-color: rgba(80, 180, 240, 0.6);
+    --wave-end-color: rgba(180, 220, 255, 0.2);
+    
+    /* 文本颜色 */
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --text-placeholder: #999999;
+    
+    /* 边框颜色 */
+    --border-color: #e5e7eb;
+    --border-light: #aeaeae32;
+    
+    /* 阴影颜色 */
+    --shadow-color: rgba(0, 0, 0, 0.4);
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    
+    /* 窗口控制按钮颜色 */
+    --close-btn: #ff5f57;
+    --minimize-btn: #ffbd2e;
+    --maximize-btn: #28c840;
+    
+    /* 输入框颜色 */
+    --input-bg: #F7F7F7;
+    --input-text: #333333;
+}

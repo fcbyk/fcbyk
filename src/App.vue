@@ -23,7 +23,7 @@ onMounted(async () => {
     loadingBar.value?.startLoading()
 
     // @ts-ignore
-    const { default:config } = await import('https://cdn.jsdelivr.net/gh/fcbyk/fcbyk@configs/index.js')
+    const { default: config } = await import(/* @vite-ignore */import.meta.env.VITE_APP_CDN)
     configsStore.setConfigs(config)
     configsStore.isConfigLoaded = true
 
@@ -63,41 +63,14 @@ onMounted(async () => {
       </chat-window>
     </Transition>
 
-    <div class="absolute left-0 right-0 hidden text-xs text-center text-gray-400 bottom-2 md:block">
+    <div class="absolute left-0 right-0 hidden text-xs text-center text-[var(--text-secondary)] bottom-2 md:block">
       <a href="https://beian.miit.gov.cn/" target="_blank">粤ICP备2022034851号-1</a>
     </div>
   </div>
 </template>
 
 <style scoped>
-/* 1. 淡入淡出效果 */
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.3s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
-
-/* 2. 从下往上滑入 */
-.slide-up-enter-active,
-.slide-up-leave-active {
-  transition: all 0.3s ease-out;
-}
-
-.slide-up-enter-from {
-  opacity: 0;
-  transform: translateY(30px);
-}
-
-.slide-up-leave-to {
-  opacity: 0;
-  transform: translateY(-30px);
-}
-
-/* 3. 缩放效果 */
+/* 缩放效果 */
 .scale-enter-active,
 .scale-leave-active {
   transition: all 0.3s ease;
@@ -107,61 +80,5 @@ onMounted(async () => {
 .scale-leave-to {
   opacity: 0;
   transform: scale(0.9);
-}
-
-/* 4. 从右侧滑入 */
-.slide-right-enter-active,
-.slide-right-leave-active {
-  transition: all 0.3s ease-out;
-}
-
-.slide-right-enter-from {
-  opacity: 0;
-  transform: translateX(-30px);
-}
-
-.slide-right-leave-to {
-  opacity: 0;
-  transform: translateX(30px);
-}
-
-/* 5. 3D翻转效果 */
-.flip-enter-active,
-.flip-leave-active {
-  transition: all 0.4s ease;
-  transform-style: preserve-3d;
-}
-
-.flip-enter-from {
-  opacity: 0;
-  transform: rotateX(-70deg);
-}
-
-.flip-leave-to {
-  opacity: 0;
-  transform: rotateX(70deg);
-}
-
-/* 6. 弹性缩放效果 */
-.bounce-enter-active {
-  animation: bounce-in 0.5s;
-}
-
-.bounce-leave-active {
-  animation: bounce-in 0.5s reverse;
-}
-
-@keyframes bounce-in {
-  0% {
-    transform: scale(0);
-  }
-
-  50% {
-    transform: scale(1.05);
-  }
-
-  100% {
-    transform: scale(1);
-  }
 }
 </style>

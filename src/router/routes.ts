@@ -1,6 +1,6 @@
 import type { RouteRecordRaw } from 'vue-router'
 import { onMounted, defineComponent } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
+import { useRoute } from 'vue-router'
 import { useConfigsStore, useMessageStore } from '@/stores'
 import { sleep } from '@/utils'
 
@@ -28,8 +28,7 @@ async function defaultRoute() {
 // 等待配置加载完成
 async function waitForConfig(): Promise<void> {
   const configsStore = useConfigsStore()
-  const messageStore = useMessageStore()
-  
+
   if (!configsStore.isConfigLoaded) {
     // 如果配置未加载，等待一段时间后重试
     await sleep(100)

@@ -24,7 +24,6 @@
 <script lang="ts" setup>
 import { useMessageStore, useConfigsStore } from '@/stores'
 import { useMenuNavigation, useMenuState, useClickOutside } from '@/utils'
-import { onMounted } from 'vue'
 import type { ActionMenuItem, ActionMenuItemBase } from '@/types'
 
 const configsStore = useConfigsStore()
@@ -62,11 +61,11 @@ useClickOutside(() => menuState.close())
 
     .menu-item {
       @apply flex-1 cursor-pointer transition-all duration-300 flex items-center justify-center relative;
-      @apply py-3 bg-white;
-      border-left: 1px solid #e5e7eb;
+      @apply py-3 bg-[var(--my-message-bg)];
+      border-left: 1px solid var(--border-color);
 
       &:hover {
-        @apply text-gray-800;
+        @apply text-[var(--text-primary)];
       }
 
       &:not(:last-child) {
@@ -74,7 +73,7 @@ useClickOutside(() => menuState.close())
       }
 
       &.has-child.active {
-        @apply text-gray-800;
+        @apply text-[var(--text-primary)];
 
         .menu-arrow {
           @apply rotate-180;
@@ -86,16 +85,16 @@ useClickOutside(() => menuState.close())
       }
 
       .sub-menu-container {
-        @apply absolute bottom-[110%] max-w-[98%] min-w-[80%] bg-white;
-        @apply border border-gray-200 rounded-lg shadow-lg z-10 overflow-hidden;
-        box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+        @apply absolute bottom-[110%] max-w-[98%] min-w-[80%] bg-[var(--my-message-bg)];
+        @apply border border-[var(--border-color)] rounded-lg shadow-lg z-10 overflow-hidden;
+        box-shadow: 0 -4px 12px var(--shadow-light);
 
         .sub-menu-item {
           @apply px-3 py-3 text-center cursor-pointer transition-colors duration-200;
-          @apply border-b border-gray-100;
+          @apply border-b border-[var(--border-color)];
 
           &:hover {
-            @apply text-gray-800;
+            @apply text-[var(--text-primary)];
           }
 
           &:last-child {

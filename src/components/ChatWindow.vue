@@ -27,7 +27,7 @@
 
   .title-bar {
     @apply flex-shrink-0 h-[30px];
-    border-bottom: 1px solid #aeaeae32;
+    border-bottom: 1px solid var(--border-light);
   }
 
   .main {
@@ -41,12 +41,12 @@
 
 @media (max-width: 600px) {
   .chat-window {
-    @apply rounded-none w-full h-full bg-[#ededed];
+    @apply rounded-none w-full h-full bg-[var(--primary-color)];
     
     .title-bar {
       @apply h-[35px];
       border-bottom:none;
-      box-shadow: 0 0.5px 0.5px rgba(0, 0, 0, 0.03)
+      box-shadow: 0 0.5px 0.5px var(--shadow-light);
     }
   }
 }

@@ -44,9 +44,9 @@ const handleSubmit = async (msg: string) => {
 
 <template>
   <Transition name="slide-root" mode="out-in">
-    <div class="chat-container first-letter:border-t border-gray-200 flex" :class="{
-      'bg-[#F7F7F7]': currentMode === 'text',
-      'bg-white': currentMode === 'menu',
+    <div class="chat-container first-letter:border-t border-[var(--border-color)] flex" :class="{
+      'bg-[var(--input-bg)]': currentMode === 'text',
+      'bg-[var(--my-message-bg)]': currentMode === 'menu',
     }" :key="currentMode">
       <div class="flex items-end p-2 " :class="{
         'pb-3': currentMode === 'text',
@@ -74,7 +74,7 @@ const handleSubmit = async (msg: string) => {
 
 <style scoped lang="postcss">
 .chat-container {
-  border-top: 1px solid #e5e7eb;
+  border-top: 1px solid var(--border-color);
 }
 
 /* 根组件滑动动画 */
