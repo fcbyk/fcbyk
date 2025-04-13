@@ -3,6 +3,7 @@ import { createMenuItem as m } from "@/utils";
 import { createMessageCreator } from "@/utils";
 
 const text = createMessageCreator("text");
+const file = createMessageCreator("file");
 
 export const defineConfig = (options: ChatConfigOptions): ChatConfig => ({
 
@@ -20,6 +21,12 @@ export const defineConfig = (options: ChatConfigOptions): ChatConfig => ({
     keywordReply: {
         "网易云": [text("音乐组件存在bug，等待修复中", 1000)],
         "不愉快": [text("在", 1000)],
+        "文件": [file({
+            fileName: "veracrypt-1.26.20.rpm",
+            fileSize: '9.05MB',
+            fileType: "rpm",
+            fileUrl: "https://github.com/veracrypt/VeraCrypt/releases/download/VeraCrypt_1.26.20/veracrypt-1.26.20-CentOS-6-i686.rpm"
+        })]
     },
 
     urlReply: {

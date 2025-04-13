@@ -1,11 +1,11 @@
 // 基础消息配置
-export type MessageType = 'text' | 'image' | 'audio' | 'video' | 'html' | 'music';
+export type MessageType = 'text' | 'image' | 'audio' | 'video' | 'html' | 'music' | 'file';
 export type MessageRole = 'me' | 'user';
 export type MessageStatus = 'loading' | 'completed' | 'error';
 
 export interface MessageConfig {
     type: MessageType;
-    content: string;
+    content: string | FileContent;
     loadingTime: number;
 }
 
@@ -18,3 +18,10 @@ export interface Message extends MessageConfig {
 
 // 消息列表
 export type MessageList = Message[];
+
+export interface FileContent {
+    fileName: string
+    fileSize: string
+    fileType: string
+    fileUrl: string
+}

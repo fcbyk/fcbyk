@@ -1,11 +1,11 @@
 import { sleep } from "./mini";
 import { Ref } from "vue";
-import { MessageConfig, MessageRole, MessageType, Message } from "@/types";
+import { MessageConfig, MessageRole, MessageType, Message, FileContent } from "@/types";
 
 interface MessageSender {
     send(
         role: MessageRole,
-        content: string,
+        content: string | FileContent,
         loadingTime?: number,
         type?: MessageType
     ): Promise<void>;
@@ -17,7 +17,7 @@ export function createMessageSender(messageList: Ref<Message[]>): MessageSender 
 
     const send = async (
         role: MessageRole,
-        content: string,
+        content: string | FileContent,
         loadingTime: number = 0,
         type: MessageType = 'text'
     ): Promise<void> => {
@@ -50,7 +50,7 @@ export function createMessageSender(messageList: Ref<Message[]>): MessageSender 
 // 工厂函数
 const createMediaMessage = (
     type: MessageType,
-    content: string,
+    content: string | FileContent,
     loadingTime: number = 0
 ): MessageConfig => {
     if (!content) throw new Error("消息不能为空");
@@ -59,4 +59,4 @@ const createMediaMessage = (
 
 // 创建指定类型的消息生成函数
 export const createMessageCreator = (messageType: MessageType) =>
-    (content: string, loadingTime?: number) => createMediaMessage(messageType, content, loadingTime);
+    (content: string | FileContent, loadingTime?: number) => createMediaMessage(messageType, content, loadingTime);
