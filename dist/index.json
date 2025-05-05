@@ -1,0 +1,431 @@
+{
+  "actionMenu": [
+    {
+      "label": "近期规划",
+      "action": {
+        "question": {
+          "type": "text",
+          "content": "近期规划",
+          "loadingTime": 0
+        },
+        "answer": [
+          {
+            "type": "text",
+            "content": "服务器繁忙，请稍后再试",
+            "loadingTime": 3000
+          }
+        ]
+      }
+    },
+    {
+      "label": "域名由来",
+      "action": {
+        "question": {
+          "type": "text",
+          "content": "fcbyk.com这个域名是怎么来的？",
+          "loadingTime": 0
+        },
+        "answer": [
+          {
+            "type": "text",
+            "content": "fcbyk是非常不愉快的拼音首字母",
+            "loadingTime": 800
+          },
+          {
+            "type": "text",
+            "content": "源于昵称重复，很久之前，我在某APP，取名字",
+            "loadingTime": 1000
+          },
+          {
+            "type": "image",
+            "content": "https://user-images.githubusercontent.com/101487905/211132451-e4f08849-4ee0-411f-8882-7c84a3862146.gif",
+            "loadingTime": 2000
+          },
+          {
+            "type": "text",
+            "content": "尝试了很多昵称，一直提示重复，最终只有非常不愉快这个昵称通过了系统的唯一性验证",
+            "loadingTime": 1500
+          },
+          {
+            "type": "image",
+            "content": "https://user-images.githubusercontent.com/101487905/211133219-7f840601-6a2f-4aab-a3d0-e8ab7b189f99.png",
+            "loadingTime": 2000
+          },
+          {
+            "type": "text",
+            "content": "之后遇到的其他不能重名的APP或游戏，都是优先使用非常不愉快这个昵称。",
+            "loadingTime": 1200
+          },
+          {
+            "type": "image",
+            "content": "https://user-images.githubusercontent.com/101487905/211133769-74cc86ce-190b-48d7-80ee-4b7b80825734.png",
+            "loadingTime": 2000
+          },
+          {
+            "type": "text",
+            "content": "有的时候非常不愉快也会重名，之后慢慢衍生出不愉快，不愉，不是不余这些昵称",
+            "loadingTime": 1200
+          },
+          {
+            "type": "text",
+            "content": "不知不觉，非常不愉快这个昵称陪伴了我好久，之后也不太想改",
+            "loadingTime": 800
+          },
+          {
+            "type": "text",
+            "content": "不愉快，在这里，没有emo和负能量的意思",
+            "loadingTime": 800
+          }
+        ]
+      }
+    },
+    {
+      "label": "关于作者",
+      "child": [
+        {
+          "label": "作品集",
+          "action": {
+            "question": {
+              "type": "text",
+              "content": "你写过哪些项目",
+              "loadingTime": 0
+            },
+            "answer": [
+              {
+                "type": "text",
+                "content": "可以在GitHub访问我写过的项目噢",
+                "loadingTime": 1500
+              },
+              {
+                "type": "html",
+                "content": "<a href=\"https://github.com/fcbyk\" \n            class=\"text-[#576b95]\n             hover:text-[#475f8c]\n                hover:underline \n                transition-colors \n             duration-200\" target=\"_blank\">\n             github.com/fcbyk\n             </a>",
+                "loadingTime": 1000
+              }
+            ]
+          }
+        },
+        {
+          "label": "自我介绍",
+          "action": {
+            "question": {
+              "type": "text",
+              "content": "可以介绍一下你自己吗",
+              "loadingTime": 0
+            },
+            "answer": [
+              {
+                "type": "text",
+                "content": "还没想好怎么介绍自己",
+                "loadingTime": 1500
+              },
+              {
+                "type": "text",
+                "content": "挺遗憾的，毕业后，没从事计科相关的工作",
+                "loadingTime": 1500
+              },
+              {
+                "type": "text",
+                "content": "2025年，正在努力通过计科变现",
+                "loadingTime": 1500
+              },
+              {
+                "type": "text",
+                "content": "目前是一名少儿编程老师，教Scratch、C++",
+                "loadingTime": 1500
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "autoReply": [
+    [
+      {
+        "type": "text",
+        "content": "⚠️ 404_Response_From_Server",
+        "loadingTime": 1000
+      }
+    ],
+    [
+      {
+        "type": "text",
+        "content": "服务器繁忙，请稍后再试",
+        "loadingTime": 3000
+      }
+    ],
+    [
+      {
+        "type": "text",
+        "content": "正在从火星数据中心同步...",
+        "loadingTime": 1500
+      }
+    ],
+    [
+      {
+        "type": "text",
+        "content": "⚠️ 程序员正在和bug搏斗中",
+        "loadingTime": 2000
+      }
+    ],
+    [
+      {
+        "type": "text",
+        "content": "服务器正在思考人生...请等待42毫秒",
+        "loadingTime": 1000
+      }
+    ],
+    [
+      {
+        "type": "text",
+        "content": "您的请求已被加入区块链，等待矿工确认⛏️",
+        "loadingTime": 2500
+      }
+    ],
+    [
+      {
+        "type": "text",
+        "content": "To be replied, or not to be replied...",
+        "loadingTime": 1800
+      }
+    ],
+    [
+      {
+        "type": "text",
+        "content": "正在为您翻山越岭⛰️...但服务器有点恐高",
+        "loadingTime": 2200
+      }
+    ],
+    [
+      {
+        "type": "text",
+        "content": "从前有台服务器...它响应得有点慢",
+        "loadingTime": 1500
+      }
+    ],
+    [
+      {
+        "type": "text",
+        "content": "等待是美好的，因为它预示着回复即将到来",
+        "loadingTime": 3000
+      }
+    ],
+    [
+      {
+        "type": "text",
+        "content": "⌛ 加载中... 99% (别信这个进度条)",
+        "loadingTime": 2000
+      }
+    ],
+    [
+      {
+        "type": "text",
+        "content": "您获得了【耐心等待】成就 +10XP",
+        "loadingTime": 2500
+      }
+    ],
+    [
+      {
+        "type": "text",
+        "content": "服务器正在团战中，请稍候...",
+        "loadingTime": 1800
+      }
+    ],
+    [
+      {
+        "type": "text",
+        "content": "需要更多矿(资)石(源)来建造回复",
+        "loadingTime": 1500
+      }
+    ],
+    [
+      {
+        "type": "text",
+        "content": "服务器正在喝咖啡提神☕...",
+        "loadingTime": 1200
+      }
+    ],
+    [
+      {
+        "type": "text",
+        "content": "您的留言正在排队，前面还有3只树懒",
+        "loadingTime": 3000
+      }
+    ],
+    [
+      {
+        "type": "text",
+        "content": "我们的信鸽正在路上🕊️...",
+        "loadingTime": 2000
+      }
+    ],
+    [
+      {
+        "type": "text",
+        "content": "服务器说它需要5分钟冥想时间",
+        "loadingTime": 1500
+      }
+    ],
+    [
+      {
+        "type": "text",
+        "content": "正在通过量子隧道传输数据...",
+        "loadingTime": 2500
+      }
+    ],
+    [
+      {
+        "type": "text",
+        "content": "来自未来的回复正在时间旅行中⏳",
+        "loadingTime": 1800
+      }
+    ],
+    [
+      {
+        "type": "text",
+        "content": "警告：检测到时空扭曲，响应延迟",
+        "loadingTime": 1500
+      }
+    ]
+  ],
+  "avatar": {
+    "me": "https://ss2.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3315366793,2321372572&fm=253&gp=0.jpg",
+    "user": "https://pic1.zhimg.com/v2-abed1a8c04700ba7d72b45195223e0ff_xs.jpg"
+  },
+  "cliPrint": [
+    "%c👻 发现秘密！\n%c要看看该项目的屎山代码吗，欢迎PR → %chttps://github.com/fcbyk/fcbyk",
+    "font-size:16px",
+    "color:#666",
+    "color:#1890ff; text-decoration:underline"
+  ],
+  "keywordReply": {
+    "网易云": [
+      {
+        "type": "text",
+        "content": "音乐组件存在bug，等待修复中",
+        "loadingTime": 1000
+      }
+    ],
+    "键盘测试": [
+      {
+        "type": "file",
+        "content": {
+          "fileName": "KB2_105.exe",
+          "fileSize": "645 KB",
+          "fileType": "exe",
+          "fileUrl": "https://github.com/fcbyk/fcbyk/releases/download/files/KB2_105.exe"
+        },
+        "loadingTime": 0
+      }
+    ]
+  },
+  "urlReply": {
+    "about": {
+      "question": {
+        "type": "text",
+        "content": "可以介绍一下你自己吗",
+        "loadingTime": 0
+      },
+      "answer": [
+        {
+          "type": "text",
+          "content": "还没想好怎么介绍自己",
+          "loadingTime": 1500
+        },
+        {
+          "type": "text",
+          "content": "挺遗憾的，毕业后，没从事计科相关的工作",
+          "loadingTime": 1500
+        },
+        {
+          "type": "text",
+          "content": "2025年，正在努力通过计科变现",
+          "loadingTime": 1500
+        },
+        {
+          "type": "text",
+          "content": "目前是一名少儿编程老师，教Scratch、C++",
+          "loadingTime": 1500
+        }
+      ]
+    },
+    "works": {
+      "question": {
+        "type": "text",
+        "content": "你写过哪些项目",
+        "loadingTime": 0
+      },
+      "answer": [
+        {
+          "type": "text",
+          "content": "可以在GitHub访问我写过的项目噢",
+          "loadingTime": 1500
+        },
+        {
+          "type": "html",
+          "content": "<a href=\"https://github.com/fcbyk\" \n            class=\"text-[#576b95]\n             hover:text-[#475f8c]\n                hover:underline \n                transition-colors \n             duration-200\" target=\"_blank\">\n             github.com/fcbyk\n             </a>",
+          "loadingTime": 1000
+        }
+      ]
+    },
+    "domain": {
+      "question": {
+        "type": "text",
+        "content": "fcbyk.com这个域名是怎么来的？",
+        "loadingTime": 0
+      },
+      "answer": [
+        {
+          "type": "text",
+          "content": "fcbyk是非常不愉快的拼音首字母",
+          "loadingTime": 800
+        },
+        {
+          "type": "text",
+          "content": "源于昵称重复，很久之前，我在某APP，取名字",
+          "loadingTime": 1000
+        },
+        {
+          "type": "image",
+          "content": "https://user-images.githubusercontent.com/101487905/211132451-e4f08849-4ee0-411f-8882-7c84a3862146.gif",
+          "loadingTime": 2000
+        },
+        {
+          "type": "text",
+          "content": "尝试了很多昵称，一直提示重复，最终只有非常不愉快这个昵称通过了系统的唯一性验证",
+          "loadingTime": 1500
+        },
+        {
+          "type": "image",
+          "content": "https://user-images.githubusercontent.com/101487905/211133219-7f840601-6a2f-4aab-a3d0-e8ab7b189f99.png",
+          "loadingTime": 2000
+        },
+        {
+          "type": "text",
+          "content": "之后遇到的其他不能重名的APP或游戏，都是优先使用非常不愉快这个昵称。",
+          "loadingTime": 1200
+        },
+        {
+          "type": "image",
+          "content": "https://user-images.githubusercontent.com/101487905/211133769-74cc86ce-190b-48d7-80ee-4b7b80825734.png",
+          "loadingTime": 2000
+        },
+        {
+          "type": "text",
+          "content": "有的时候非常不愉快也会重名，之后慢慢衍生出不愉快，不愉，不是不余这些昵称",
+          "loadingTime": 1200
+        },
+        {
+          "type": "text",
+          "content": "不知不觉，非常不愉快这个昵称陪伴了我好久，之后也不太想改",
+          "loadingTime": 800
+        },
+        {
+          "type": "text",
+          "content": "不愉快，在这里，没有emo和负能量的意思",
+          "loadingTime": 800
+        }
+      ]
+    }
+  }
+}
