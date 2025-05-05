@@ -14,7 +14,12 @@ export default defineConfig({
       formats: ['es']
     },
     outDir: 'dist',
-    emptyOutDir: true
+    emptyOutDir: true,
+    rollupOptions: {
+      output: {
+        assetFileNames: 'index.[ext]'
+      }
+    }
   },
   resolve: {
     alias: {

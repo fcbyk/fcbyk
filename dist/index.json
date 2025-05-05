@@ -98,7 +98,7 @@
               },
               {
                 "type": "html",
-                "content": "<a href=\"https://github.com/fcbyk\" \n            class=\"text-[#576b95]\n             hover:text-[#475f8c]\n                hover:underline \n                transition-colors \n             duration-200\" target=\"_blank\">\n             github.com/fcbyk\n             </a>",
+                "content": "<a href=\"https://github.com/fcbyk\" class=\"custom-link\" target=\"_blank\">\n                github.com/fcbyk\n                </a>",
                 "loadingTime": 1000
               }
             ]
@@ -363,7 +363,7 @@
         },
         {
           "type": "html",
-          "content": "<a href=\"https://github.com/fcbyk\" \n            class=\"text-[#576b95]\n             hover:text-[#475f8c]\n                hover:underline \n                transition-colors \n             duration-200\" target=\"_blank\">\n             github.com/fcbyk\n             </a>",
+          "content": "<a href=\"https://github.com/fcbyk\" class=\"custom-link\" target=\"_blank\">\n                github.com/fcbyk\n                </a>",
           "loadingTime": 1000
         }
       ]

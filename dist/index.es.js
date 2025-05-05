@@ -1,7 +1,7 @@
-const h = (o, c, i = 0) => {
+const m = (o, c, i = 0) => {
   if (!c) throw new Error("消息不能为空");
   return { type: o, content: c, loadingTime: i };
-}, t = (o) => (c, i) => h(o, c, i), b = t("text"), r = (o, c = {
+}, t = (o) => (c, i) => m(o, c, i), b = t("text"), r = (o, c = {
   question: b(o),
   answer: [b("服务器繁忙，请稍后再试", 3e3)]
 }) => ({ label: o, action: c }), s = t("text"), a = t("image"), f = {
@@ -30,19 +30,14 @@ const h = (o, c, i = 0) => {
   question: u("你写过哪些项目"),
   answer: [
     u("可以在GitHub访问我写过的项目噢", 1500),
-    p(`<a href="https://github.com/fcbyk" 
-            class="text-[#576b95]
-             hover:text-[#475f8c]
-                hover:underline 
-                transition-colors 
-             duration-200" target="_blank">
-             github.com/fcbyk
-             </a>`, 1e3)
+    p(`<a href="https://github.com/fcbyk" class="custom-link" target="_blank">
+                github.com/fcbyk
+                </a>`, 1e3)
   ]
-}, m = (o, c) => ({ label: o, child: c }), d = [
+}, h = (o, c) => ({ label: o, child: c }), d = [
   r("近期规划"),
   r("域名由来", f),
-  m(
+  h(
     "关于作者",
     [
       r("作品集", g),
@@ -84,7 +79,7 @@ const h = (o, c, i = 0) => {
   about: l,
   works: g,
   domain: f
-}, w = t("text"), P = t("file"), v = {
+}, w = t("text"), P = t("file"), M = {
   网易云: [w("音乐组件存在bug，等待修复中", 1e3)],
   键盘测试: [P({
     fileName: "KB2_105.exe",
@@ -92,17 +87,17 @@ const h = (o, c, i = 0) => {
     fileType: "exe",
     fileUrl: "https://github.com/fcbyk/fcbyk/releases/download/files/KB2_105.exe"
   })]
-}, M = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+}, S = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   actionMenu: d,
   autoReply: x,
   avatar: y,
   cliPrint: k,
-  keywordReply: v,
+  keywordReply: M,
   urlReply: _
-}, Symbol.toStringTag, { value: "Module" })), S = {
-  ...M
+}, Symbol.toStringTag, { value: "Module" })), v = {
+  ...S
 };
 export {
-  S as default
+  v as default
 };
