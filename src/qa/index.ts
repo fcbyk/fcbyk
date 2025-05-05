@@ -1,3 +1,3 @@
-export * from "./domain.js"
-export * from "./about.js"
-export * from "./works.js"
+export * from "./domain"
+export * from "./about"
+export * from "./works"
