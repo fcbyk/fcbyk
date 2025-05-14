@@ -3,12 +3,12 @@ import ChatWindow from './components/ChatWindow.vue';
 import TitleBar from './components/TitleBar.vue';
 import BottomBar from './components/bottom/BottomBar.vue';
 import MessageList from './components/message/MessageList.vue';
-import WaveBackground from '@/components/bg/WaveBackground.vue';
 import LoadingBar from './components/common/LoadingBar.vue'
 import { ref, onMounted } from 'vue'
 import { sleep } from './utils';
 import { useConfigsStore } from './stores';
 import { useHead } from '@vueuse/head'
+import BackgroundSelector from '@/components/bg/BackgroundSelector.vue'
 
 const loadingBar = ref()
 const isAppReady = ref(false)
@@ -42,9 +42,7 @@ onMounted(async () => {
   <div class="flex justify-center items-center h-[100dvh]">
     <loading-bar ref="loadingBar" />
 
-    <WaveBackground backgroundColor="#f5f9ff" waveColorStart="rgba(80, 180, 240, 0.6)"
-      waveColorEnd="rgba(180, 220, 255, 0.2)" :waveHeight="30" :secondaryWaveHeight="20" :animationSpeed="0.04"
-      :wavePosition="0.6" />
+    <BackgroundSelector />
 
     <Transition name="scale">
       <chat-window v-if="isAppReady">

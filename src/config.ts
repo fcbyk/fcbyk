@@ -9,6 +9,9 @@ export const defineConfig = (options: ChatConfigOptions): ChatConfig => ({
 
     name: '非常不愉快',
 
+    // 背景配置
+    background: { type: 2 },
+
     hello: [
         text("你好！我是不愉，你有什么要问我的吗？", 1000)
     ],

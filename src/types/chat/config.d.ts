@@ -7,6 +7,14 @@ export interface ChatConfig {
   name: string;
 
   /**
+   * 背景配置
+   */
+  background: { 
+    type: number, 
+    props?: Object
+  };
+
+  /**
    * 问候语设置
    */
   hello: MessageConfig[];

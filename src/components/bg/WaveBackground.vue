@@ -8,15 +8,15 @@ import { onMounted, onUnmounted, ref } from 'vue';
 const props = defineProps({
   backgroundColor: {
     type: String,
-    default: '#f0f8ff'
+    default: '#f5f9ff'
   },
   waveColorStart: {
     type: String,
-    default: 'rgba(100, 200, 255, 0.7)'
+    default: 'rgba(80, 180, 240, 0.6)'
   },
   waveColorEnd: {
     type: String,
-    default: 'rgba(200, 240, 255, 0.3)'
+    default: 'rgba(180, 220, 255, 0.2)'
   },
   waveHeight: {
     type: Number,
@@ -28,11 +28,11 @@ const props = defineProps({
   },
   animationSpeed: {
     type: Number,
-    default: 0.05
+    default: 0.04
   },
   wavePosition: {
     type: Number,
-    default: 0.5,
+    default: 0.6,
     validator: value => value >= 0 && value <= 1
   },
   boatColor: {

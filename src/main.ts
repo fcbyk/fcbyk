@@ -5,7 +5,7 @@ import { createHead } from '@vueuse/head'
 import App from './App.vue'
 import router from './router'
 
-// 动态注入CCSS
+// 动态注入CSS
 const cdnUrl = import.meta.env.VITE_APP_CDN_CSS
 if (cdnUrl) {
   const link = document.createElement('link')
