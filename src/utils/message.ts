@@ -14,8 +14,8 @@ interface MessageSender {
         loadingTime?: number,
         type?: MessageType
     ): Promise<void>;
-    sendAsUser(content: string, type?: MessageType): Promise<void>;
-    sendAsMe(content: string, loadingTime?: number, type?: MessageType): Promise<void>;
+    sendAsUser(content: MessageContent, type?: MessageType): Promise<void>;
+    sendAsMe(content: MessageContent, loadingTime?: number, type?: MessageType): Promise<void>;
 }
 
 export function createMessageSender(messageList: Ref<Message[]>): MessageSender {

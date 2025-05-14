@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 import { createMessageSender } from '@/utils'
-import type { Message, MessageType, QA, MessageConfig } from '@/types'
+import type { Message, MessageType, QA, MessageConfig, MessageContent } from '@/types'
 
 export const useMessageStore = defineStore('message', () => {
 
@@ -18,11 +18,11 @@ export const useMessageStore = defineStore('message', () => {
   const toggleTyping = () => { isTyping.value = !isTyping.value }
 
   // 封装带状态控制的发送方法
-  const userSend = async (content: string, type: MessageType = 'text') => {
+  const userSend = async (content: MessageContent, type: MessageType = 'text') => {
     await messageSender.sendAsUser(content, type)
   }
 
-  const meSend = async (content: string, loadingTime: number = 100, type: MessageType = 'text') => {
+  const meSend = async (content: MessageContent, loadingTime: number = 100, type: MessageType = 'text') => {
     startTyping()
     try {
       await messageSender.sendAsMe(content, loadingTime, type)
