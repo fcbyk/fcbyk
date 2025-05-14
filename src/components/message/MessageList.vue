@@ -22,6 +22,7 @@ import TextMessage from './TextMessage.vue'
 import ImageMessage from './ImageMessage.vue'
 import HTMLMessage from './HTMLMessage.vue'
 import FileMessage from './FileMessage.vue'
+import NavMessage from './NavMessage.vue'
 
 const messageStore = useMessageStore()
 const configsStore = useConfigsStore()
@@ -33,6 +34,7 @@ const messageComponents = {
   image: ImageMessage,
   html: HTMLMessage,
   file: FileMessage,
+  nav: NavMessage,
 }
 
 // 根据消息类型获取对应的组件
