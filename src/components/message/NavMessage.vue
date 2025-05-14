@@ -6,7 +6,7 @@
         <a :href="content.link" target="_blank" rel="noopener noreferrer" class="bookmark-container">
             <!-- 上部分：图标和内容 -->
             <div class="bookmark-main">
-                <div class="bookmark-icon">
+                <div v-if="content.icon" class="bookmark-icon">
                     <img v-if="typeof content.icon === 'string'" :src="content.icon" alt="网站图标" />
                     <div v-else-if="content.icon?.svg" v-html="content.icon.svg"></div>
                     <div v-else class="default-icon">

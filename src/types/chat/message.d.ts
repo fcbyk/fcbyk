@@ -29,8 +29,8 @@ export interface FileContent {
 
 export interface NavContent {
     title: string
-    desc: string
     link: string
-    icon: string
+    desc?: string
+    icon?: string
 }
 
