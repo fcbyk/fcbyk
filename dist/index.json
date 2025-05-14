@@ -306,7 +306,7 @@
         "loadingTime": 1000
       }
     ],
-    "键盘测试": [
+    "键盘测试@下载": [
       {
         "type": "file",
         "content": {
@@ -316,6 +316,111 @@
           "fileUrl": "https://github.com/fcbyk/fcbyk/releases/download/files/KB2_105.exe"
         },
         "loadingTime": 0
+      }
+    ],
+    "ai@书签": [
+      {
+        "type": "nav",
+        "content": {
+          "icon": "https://www.deepseek.com/favicon.ico",
+          "title": "DeepSeek",
+          "link": "https://www.deepseek.com/",
+          "desc": "深度求索大模型"
+        },
+        "loadingTime": 0
+      },
+      {
+        "type": "nav",
+        "content": {
+          "icon": "https://chat.openai.com/favicon.ico",
+          "title": "ChatGPT 官方",
+          "link": "https://chat.openai.com/chat",
+          "desc": "OpenAI 官方大模型"
+        },
+        "loadingTime": 1
+      },
+      {
+        "type": "nav",
+        "content": {
+          "icon": "https://lf-flow-web-cdn.doubao.com/obj/flow-doubao/doubao/web/logo-icon.png",
+          "title": "豆包",
+          "desc": "字节跳动-云雀语言模型",
+          "link": "https://www.doubao.com/"
+        },
+        "loadingTime": 2
+      }
+    ],
+    "游戏@书签": [
+      {
+        "type": "nav",
+        "content": {
+          "title": "Steam",
+          "link": "https://store.steampowered.com/"
+        },
+        "loadingTime": 0
+      },
+      {
+        "type": "nav",
+        "content": {
+          "title": "Epic Games",
+          "link": "https://store.epicgames.com/"
+        },
+        "loadingTime": 1
+      },
+      {
+        "type": "nav",
+        "content": {
+          "title": "steam离线游戏",
+          "link": "https://pp.520ee.vip/"
+        },
+        "loadingTime": 2
+      }
+    ],
+    "视频@书签": [
+      {
+        "type": "nav",
+        "content": {
+          "icon": "https://www.bilibili.com/favicon.ico?v=1",
+          "title": "哔哩哔哩",
+          "link": "https://www.bilibili.com/"
+        },
+        "loadingTime": 0
+      },
+      {
+        "type": "nav",
+        "content": {
+          "icon": "https://v.qq.com/favicon.ico",
+          "title": "腾讯视频",
+          "link": "https://v.qq.com/"
+        },
+        "loadingTime": 1
+      },
+      {
+        "type": "nav",
+        "content": {
+          "icon": "https://lf1-cdn-tos.bytegoofy.com/goofy/ies/douyin_web/public/favicon.ico",
+          "title": "抖音",
+          "link": "https://www.douyin.com/"
+        },
+        "loadingTime": 2
+      },
+      {
+        "type": "nav",
+        "content": {
+          "icon": "https://vip.diaoyu18.com/favicon.ico",
+          "title": "视频解析",
+          "link": "https://vip.diaoyu18.com/"
+        },
+        "loadingTime": 3
+      },
+      {
+        "type": "nav",
+        "content": {
+          "icon": "https://www.iyf.tv/assets/images/player_logo.png",
+          "title": "爱壹帆",
+          "link": "https://www.iyf.tv/"
+        },
+        "loadingTime": 4
       }
     ]
   },

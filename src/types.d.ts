@@ -1,11 +1,12 @@
 // 基础消息配置
-export type MessageType = 'text' | 'image' | 'audio' | 'video' | 'html' | 'music' | 'file';
+export type MessageType = 'text' | 'image' | 'audio' | 'video' | 'html' | 'music' | 'file' | 'nav';
 export type MessageRole = 'me' | 'user';
 export type MessageStatus = 'loading' | 'completed' | 'error';
+export type MessageContent = string | FileContent | NavContent;
 
 export interface MessageConfig {
     type: MessageType;
-    content: string | FileContent;
+    content: MessageContent;
     loadingTime: number;
 }
 
@@ -24,6 +25,13 @@ export interface FileContent {
     fileSize: string
     fileType: string
     fileUrl: string
+}
+
+export interface NavContent {
+    title: string
+    link: string
+    desc?: string
+    icon?: string
 }
 
 // 问答对结构

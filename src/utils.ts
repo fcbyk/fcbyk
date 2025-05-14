@@ -1,9 +1,9 @@
-import { MessageConfig, MessageType, FileContent, QA } from "@/types";
+import { MessageConfig, MessageType, QA, MessageContent } from "@/types";
 
 // 工厂函数
 const createMediaMessage = (
     type: MessageType,
-    content: string | FileContent,
+    content: MessageContent,
     loadingTime: number = 0
 ): MessageConfig => {
     if (!content) throw new Error("消息不能为空");
@@ -12,7 +12,7 @@ const createMediaMessage = (
 
 // 创建指定类型的消息生成函数
 export const createMessageCreator = (messageType: MessageType) =>
-    (content: string | FileContent, loadingTime?: number) => createMediaMessage(messageType, content, loadingTime);
+    (content: MessageContent, loadingTime?: number) => createMediaMessage(messageType, content, loadingTime);
 
 export const defineQA = (qa: QA): QA => qa;
 
